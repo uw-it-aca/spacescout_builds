@@ -25,6 +25,7 @@ def deploy_dev_admin():
         local("pip install -r admin_proj/spotseeker_admin/requirements.txt")
         local("cp configs/dev_admin_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
+        local("python admin_proj/manage.py syncdb")
     
 def deploy_dev_docs():
     local("virtualenv --no-site-packages docs_proj/")
