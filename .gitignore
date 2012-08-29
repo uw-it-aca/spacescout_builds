@@ -1,5 +1,6 @@
 # Temp and swap files
 .Python
+*~
 *.pyc
 *.swp
 *.swo
