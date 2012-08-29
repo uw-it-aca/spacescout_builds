@@ -42,11 +42,12 @@ def deploy_dev_web():
 def _replace_local_settings_for(folder):
     secret_key = _generate_secret_key()
     f1 = open("%s/%s/local_settings.py" % (folder, folder), 'r')
-    local_settings = f1.read()
+    temp = f1.read()
     f1.close()
-    local_settings = local_settings.replace("SECRET_KEY = ''", "SECRET_KEY = '%s'" % secret_key)
+    local_settings = temp.replace("SECRET_KEY = ''", "SECRET_KEY = '%s'" % secret_key)
     f2 = open("%s/%s/local_settings.py" % (folder, folder), 'w')
     f2.write(local_settings)
+    f2.close()
 
 def _generate_secret_key():
     return "".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)])
