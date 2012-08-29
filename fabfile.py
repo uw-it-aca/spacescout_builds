@@ -9,7 +9,7 @@ def deploy_dev_server():
     
     # admin
     local("virtualenv --no-site-packages admin_proj/")
-    with prefix(". server_proj/bin/activate"):
+    with prefix(". admin_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_admin.git admin_proj/spotseeker_admin")
         local("pip install -r admin_proj/spotseeker_admin/requirements.txt")
     
@@ -21,6 +21,6 @@ def deploy_dev_server():
     
     # web
     local("virtualenv --no-site-packages web_proj/")
-    with prefix(". docs_proj/bin/activate"):
+    with prefix(". web_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_web.git web_proj/spotseeker_web")
         local("pip install -r web_proj/spotseeker_web/requirements.txt")
