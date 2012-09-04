@@ -16,9 +16,9 @@ def deploy_dev_server():
         local("pip install -r server_proj/spotseeker_server/requirements.txt")
         local("cp configs/dev/dev_server_settings.py server_proj/server_proj/local_settings.py")
         _replace_local_settings_for("server_proj")
-        local("python server_proj/manage.py syncdb")
-        local("python server_proj/manage.py migrate")
-        #local("python server_proj/manage.py runserver")
+        with prefix("cd server_proj/"):
+            local("python manage.py syncdb")
+            local("python manage.py migrate")
 
 
 def deploy_dev_admin():
