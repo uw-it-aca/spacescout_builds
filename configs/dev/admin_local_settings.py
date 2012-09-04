@@ -21,8 +21,8 @@ DATABASES = {
 }
 
 SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000/'
-SS_WEB_OAUTH_KEY = "91201ec661d7bf71e1c346d91885256b99a80111"
-SS_WEB_OAUTH_SECRET = "618719f9c358028fa0dd3afd3af4d0dea07b1111"
+#SS_WEB_OAUTH_KEY = ''
+#SS_WEB_OAUTH_SECRET = ''
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
