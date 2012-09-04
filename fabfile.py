@@ -1,4 +1,5 @@
 from fabric.api import local, prefix
+from fabric.contrib.console import confirm
 import random
 
 
@@ -55,19 +56,20 @@ def deploy_dev_web():
 
 
 def full_clean():
-    #local('git reset --hard')
-    local('git clean -df')
-    local('find . -name "*.pyc" -exec rm -rf {} \;')
-    local('find . -name "*.db" -exec rm -rf {} \;')
-    local('find . -name "local_settings.py" -exec rm -rf {} \;')
-    local('rm -rf admin_proj/spotseeker_admin')
-    local('rm -rf docs_proj/spotseeker_docs')
-    local('rm -rf server_proj/spotseeker_server')
-    local('rm -rf web_proj/spotseeker_web')
-    for proj in ['admin_proj', 'docs_proj', 'server_proj', 'web_proj']:
-        local("rm -rf %s/bin" % proj)
-        local("rm -rf %s/include" % proj)
-        local("rm -rf %s/lib" % proj)
+    if confirm("ALL uncommitted changes will be lost. Continue?", default=False):
+        local('git reset --hard')
+        local('git clean -df')
+        local('find . -name "*.pyc" -exec rm -rf {} \;')
+        local('find . -name "*.db" -exec rm -rf {} \;')
+        local('find . -name "local_settings.py" -exec rm -rf {} \;')
+        local('rm -rf admin_proj/spotseeker_admin')
+        local('rm -rf docs_proj/spotseeker_docs')
+        local('rm -rf server_proj/spotseeker_server')
+        local('rm -rf web_proj/spotseeker_web')
+        for proj in ['admin_proj', 'docs_proj', 'server_proj', 'web_proj']:
+            local("rm -rf %s/bin" % proj)
+            local("rm -rf %s/include" % proj)
+            local("rm -rf %s/lib" % proj)
 
 
 def _replace_local_settings_for(folder):
