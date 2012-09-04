@@ -5,3 +5,18 @@
 *.swp
 *.swo
 .DS_Store
+
+# virtualenv stuff
+bin
+include
+lib
+
+# local configs and sqlite3 databases
+*.db
+local_settings.py
+
+# Apps - these should all be treated as their own repositories
+spotseeker_admin
+spotseeker_docs
+spotseeker_server
+spotseeker_web
