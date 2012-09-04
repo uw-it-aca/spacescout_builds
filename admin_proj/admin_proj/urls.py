@@ -6,8 +6,10 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'admin_proj.views.home', name='home'),
-    # url(r'^admin_proj/', include('admin_proj.foo.urls')),
+    # url(r'^$', 'spotseeker.views.home', name='home'),
+    # url(r'^spotseeker/', include('spotseeker.foo.urls')),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    url(r'^', include('spotseeker_admin.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

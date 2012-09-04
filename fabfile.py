@@ -28,7 +28,8 @@ def deploy_dev_admin():
         local("pip install -r admin_proj/spotseeker_admin/requirements.txt")
         local("cp configs/dev/dev_admin_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
-        local("python admin_proj/manage.py syncdb")
+        with prefix("cd admin_proj/"):
+            local("python manage.py syncdb")
 
 
 def deploy_dev_docs():
