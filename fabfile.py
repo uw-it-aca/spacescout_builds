@@ -15,7 +15,7 @@ def deploy_dev_server():
     with prefix(". server_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_server.git server_proj/spotseeker_server")
         local("pip install -r server_proj/spotseeker_server/requirements.txt")
-        local("cp configs/dev/dev_server_settings.py server_proj/server_proj/local_settings.py")
+        local("cp configs/dev/server_local_settings.py server_proj/server_proj/local_settings.py")
         _replace_local_settings_for("server_proj")
         with prefix("cd server_proj/"):
             local("python manage.py syncdb")
@@ -27,7 +27,7 @@ def deploy_dev_admin():
     with prefix(". admin_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_admin.git admin_proj/spotseeker_admin")
         local("pip install -r admin_proj/spotseeker_admin/requirements.txt")
-        local("cp configs/dev/dev_admin_settings.py admin_proj/admin_proj/local_settings.py")
+        local("cp configs/dev/admin_local_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
         with prefix("cd admin_proj/"):
             local("python manage.py syncdb")
@@ -38,7 +38,7 @@ def deploy_dev_docs():
     with prefix(". docs_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_docs.git docs_proj/spotseeker_docs")
         local("pip install -r docs_proj/spotseeker_docs/requirements.txt")
-        local("cp configs/dev/dev_docs_settings.py docs_proj/docs_proj/local_settings.py")
+        local("cp configs/dev/docs_local_settings.py docs_proj/docs_proj/local_settings.py")
         _replace_local_settings_for("docs_proj")
         with prefix("cd docs_proj/"):
             local("python manage.py syncdb")
@@ -49,7 +49,7 @@ def deploy_dev_web():
     with prefix(". web_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_web.git web_proj/spotseeker_web")
         local("pip install -r web_proj/spotseeker_web/requirements.txt")
-        local("cp configs/dev/dev_web_settings.py web_proj/web_proj/local_settings.py")
+        local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
         _replace_local_settings_for("web_proj")
         with prefix("cd web_proj/"):
             local("python manage.py syncdb")
