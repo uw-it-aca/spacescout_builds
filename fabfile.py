@@ -39,6 +39,8 @@ def deploy_dev_docs():
         local("pip install -r docs_proj/spotseeker_docs/requirements.txt")
         local("cp configs/dev/dev_docs_settings.py docs_proj/docs_proj/local_settings.py")
         _replace_local_settings_for("docs_proj")
+        with prefix("cd docs_proj/"):
+            local("python manage.py syncdb")
 
 
 def deploy_dev_web():
