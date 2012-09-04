@@ -20,9 +20,14 @@ DATABASES = {
     }
 }
 
-SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000/'
-#SS_WEB_OAUTH_KEY = ''
-#SS_WEB_OAUTH_SECRET = ''
+SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000'
+# Run ./manage.py create_consumer on the server and copy the key and secret below. You'll also need to go into the admin and make the oauth client "Trusted."
+SS_WEB_OAUTH_KEY = ''
+SS_WEB_OAUTH_SECRET = ''
+
+DEFAULT_CENTER_LATITUDE = '47.655003'
+DEFAULT_CENTER_LONGITUDE = '-122.306864'
+DEFAULT_ZOOM_LEVEL = '15'
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name

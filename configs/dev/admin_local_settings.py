@@ -20,7 +20,7 @@ DATABASES = {
     }
 }
 
-SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000/'
+SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000'
 #SS_WEB_OAUTH_KEY = ''
 #SS_WEB_OAUTH_SECRET = ''
 
