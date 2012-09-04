@@ -50,6 +50,8 @@ def deploy_dev_web():
         local("pip install -r web_proj/spotseeker_web/requirements.txt")
         local("cp configs/dev/dev_web_settings.py web_proj/web_proj/local_settings.py")
         _replace_local_settings_for("web_proj")
+        with prefix("cd web_proj/"):
+            local("python manage.py syncdb")
 
 
 def _replace_local_settings_for(folder):
