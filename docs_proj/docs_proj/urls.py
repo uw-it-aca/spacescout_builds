@@ -7,8 +7,8 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'spotseeker.views.home', name='home'),
-    # url(r'^$', include('spotseeker_docs.urls')),
+    # url(r'^$', 'spacescout.views.home', name='home'),
+    # url(r'^$', include('spacescout_docs.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),

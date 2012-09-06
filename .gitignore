@@ -16,7 +16,7 @@ lib
 local_settings.py
 
 # Apps - these should all be treated as their own repositories
-spotseeker_admin
-spotseeker_docs
+spacescout_admin
+spacescout_docs
 spotseeker_server
-spotseeker_web
+spacescout_web

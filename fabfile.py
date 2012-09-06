@@ -25,8 +25,8 @@ def deploy_dev_server():
 def deploy_dev_admin():
     local("virtualenv --no-site-packages admin_proj/")
     with prefix(". admin_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spotseeker_admin.git admin_proj/spotseeker_admin")
-        local("pip install -r admin_proj/spotseeker_admin/requirements.txt")
+        local("git clone git://github.com/abztrakt/spacescout_admin.git admin_proj/spotseeker_admin")
+        local("pip install -r admin_proj/spacescout_admin/requirements.txt")
         local("cp configs/dev/admin_local_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
         with prefix("cd admin_proj/"):
@@ -36,8 +36,8 @@ def deploy_dev_admin():
 def deploy_dev_docs():
     local("virtualenv --no-site-packages docs_proj/")
     with prefix(". docs_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spotseeker_docs.git docs_proj/spotseeker_docs")
-        local("pip install -r docs_proj/spotseeker_docs/requirements.txt")
+        local("git clone git://github.com/abztrakt/spacescout_docs.git docs_proj/spotseeker_docs")
+        local("pip install -r docs_proj/spacescout_docs/requirements.txt")
         local("cp configs/dev/docs_local_settings.py docs_proj/docs_proj/local_settings.py")
         _replace_local_settings_for("docs_proj")
         with prefix("cd docs_proj/"):
@@ -47,8 +47,8 @@ def deploy_dev_docs():
 def deploy_dev_web():
     local("virtualenv --no-site-packages web_proj/")
     with prefix(". web_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spotseeker_web.git web_proj/spotseeker_web")
-        local("pip install -r web_proj/spotseeker_web/requirements.txt")
+        local("git clone git://github.com/abztrakt/spacescout_web.git web_proj/spotseeker_web")
+        local("pip install -r web_proj/spacescout_web/requirements.txt")
         local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
         _replace_local_settings_for("web_proj")
         with prefix("cd web_proj/"):
@@ -62,10 +62,10 @@ def full_clean():
         local('find . -name "*.pyc" -exec rm -rf {} \;')
         local('find . -name "*.db" -exec rm -rf {} \;')
         local('find . -name "local_settings.py" -exec rm -rf {} \;')
-        local('rm -rf admin_proj/spotseeker_admin')
-        local('rm -rf docs_proj/spotseeker_docs')
+        local('rm -rf admin_proj/spacescout_admin')
+        local('rm -rf docs_proj/spacescout_docs')
         local('rm -rf server_proj/spotseeker_server')
-        local('rm -rf web_proj/spotseeker_web')
+        local('rm -rf web_proj/spacescout_web')
         for proj in ['admin_proj', 'docs_proj', 'server_proj', 'web_proj']:
             local("rm -rf %s/bin" % proj)
             local("rm -rf %s/include" % proj)
