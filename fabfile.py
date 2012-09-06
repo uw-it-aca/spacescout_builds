@@ -21,8 +21,7 @@ def deploy_dev_server(username=None, email=None):
         with prefix("cd server_proj/"):
             if username and email:
                 local("python manage.py syncdb --noinput")
-                local("python manage.py createsuperuser --username=%s --email=%s"
-                    % (username, email))
+                local("python manage.py createsuperuser --username=%s --email=%s" % (username, email))
             else:
                 local("python manage.py syncdb")
             local("python manage.py migrate")
