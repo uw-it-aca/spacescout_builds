@@ -4,14 +4,13 @@ import random
 
 
 def deploy_dev():
-    username, email = _get_user_info()
-    deploy_dev_server(username, email)
-    deploy_dev_admin(username, email)
-    deploy_dev_docs(username, email)
-    deploy_dev_web(username, email)
+    deploy_dev_server()
+    deploy_dev_admin()
+    deploy_dev_docs()
+    deploy_dev_web()
 
 
-def deploy_dev_server(username=None, email=None):
+def deploy_dev_server():
     local("virtualenv --no-site-packages server_proj/")
     with prefix(". server_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spotseeker_server.git server_proj/spotseeker_server")
@@ -19,15 +18,11 @@ def deploy_dev_server(username=None, email=None):
         local("cp configs/dev/server_local_settings.py server_proj/server_proj/local_settings.py")
         _replace_local_settings_for("server_proj")
         with prefix("cd server_proj/"):
-            if username and email:
-                local("python manage.py syncdb --noinput")
-                local("python manage.py createsuperuser --username=%s --email=%s" % (username, email))
-            else:
-                local("python manage.py syncdb")
+            local("python manage.py syncdb")
             local("python manage.py migrate")
 
 
-def deploy_dev_admin(username=None, email=None):
+def deploy_dev_admin():
     local("virtualenv --no-site-packages admin_proj/")
     with prefix(". admin_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spacescout_admin.git admin_proj/spacescout_admin")
@@ -35,14 +30,10 @@ def deploy_dev_admin(username=None, email=None):
         local("cp configs/dev/admin_local_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
         with prefix("cd admin_proj/"):
-            if username and email:
-                local("python manage.py syncdb --noinput")
-                local("python manage.py createsuperuser --username=%s --email=%s" % (username, email))
-            else:
-                local("python manage.py syncdb")
+            local("python manage.py syncdb")
 
 
-def deploy_dev_docs(username=None, email=None):
+def deploy_dev_docs():
     local("virtualenv --no-site-packages docs_proj/")
     with prefix(". docs_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spacescout_docs.git docs_proj/spacescout_docs")
@@ -50,14 +41,10 @@ def deploy_dev_docs(username=None, email=None):
         local("cp configs/dev/docs_local_settings.py docs_proj/docs_proj/local_settings.py")
         _replace_local_settings_for("docs_proj")
         with prefix("cd docs_proj/"):
-            if username and email:
-                local("python manage.py syncdb --noinput")
-                local("python manage.py createsuperuser --username=%s --email=%s" % (username, email))
-            else:
-                local("python manage.py syncdb")
+            local("python manage.py syncdb")
 
 
-def deploy_dev_web(username=None, email=None):
+def deploy_dev_web():
     local("virtualenv --no-site-packages web_proj/")
     with prefix(". web_proj/bin/activate"):
         local("git clone git://github.com/abztrakt/spacescout_web.git web_proj/spacescout_web")
@@ -65,11 +52,7 @@ def deploy_dev_web(username=None, email=None):
         local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
         _replace_local_settings_for("web_proj")
         with prefix("cd web_proj/"):
-            if username and email:
-                local("python manage.py syncdb --noinput")
-                local("python manage.py createsuperuser --username=%s --email=%s" % (username, email))
-            else:
-                local("python manage.py syncdb")
+            local("python manage.py syncdb")
 
 
 def full_clean():
@@ -87,13 +70,6 @@ def full_clean():
             local("rm -rf %s/bin" % proj)
             local("rm -rf %s/include" % proj)
             local("rm -rf %s/lib" % proj)
-
-
-def _get_user_info():
-    print("Providing the following information will allow the script to automatically create a superuser account for all Django projects, but you will still have to input your password along the way.")
-    username = raw_input("Username: ")
-    email = raw_input("E-mail address: ")
-    return username, email
     
 
 def _replace_local_settings_for(folder):
