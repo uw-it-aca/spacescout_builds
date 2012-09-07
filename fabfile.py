@@ -30,7 +30,7 @@ def deploy_dev_server(username=None, email=None):
 def deploy_dev_admin(username=None, email=None):
     local("virtualenv --no-site-packages admin_proj/")
     with prefix(". admin_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spacescout_admin.git admin_proj/spotseeker_admin")
+        local("git clone git://github.com/abztrakt/spacescout_admin.git admin_proj/spacescout_admin")
         local("pip install -r admin_proj/spacescout_admin/requirements.txt")
         local("cp configs/dev/admin_local_settings.py admin_proj/admin_proj/local_settings.py")
         _replace_local_settings_for("admin_proj")
@@ -45,7 +45,7 @@ def deploy_dev_admin(username=None, email=None):
 def deploy_dev_docs(username=None, email=None):
     local("virtualenv --no-site-packages docs_proj/")
     with prefix(". docs_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spacescout_docs.git docs_proj/spotseeker_docs")
+        local("git clone git://github.com/abztrakt/spacescout_docs.git docs_proj/spacescout_docs")
         local("pip install -r docs_proj/spacescout_docs/requirements.txt")
         local("cp configs/dev/docs_local_settings.py docs_proj/docs_proj/local_settings.py")
         _replace_local_settings_for("docs_proj")
@@ -60,7 +60,7 @@ def deploy_dev_docs(username=None, email=None):
 def deploy_dev_web(username=None, email=None):
     local("virtualenv --no-site-packages web_proj/")
     with prefix(". web_proj/bin/activate"):
-        local("git clone git://github.com/abztrakt/spacescout_web.git web_proj/spotseeker_web")
+        local("git clone git://github.com/abztrakt/spacescout_web.git web_proj/spacescout_web")
         local("pip install -r web_proj/spacescout_web/requirements.txt")
         local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
         _replace_local_settings_for("web_proj")
