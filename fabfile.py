@@ -8,18 +8,18 @@ import pexpect
 def deploy_dev():
     info = _get_user_info()
     for project in ["server", "admin", "docs", "web"]:
-        print "\nDeploying dev %s." % project
+        print "\nDeploying dev %s. Please wait..." % project
         child = pexpect.spawn("fab deploy_dev_%s" % project)
         child.expect("Would.*: ", timeout=120)      # Timeout can be changed depending on connection speed.
         child.sendline("yes")
         child.expect("Username.*: ")
-        child.sendline("%s" % info[0])
+        child.sendline(info[0])
         child.expect("E-mail.*: ")
-        child.sendline("%s" % info[1])
+        child.sendline(info[1])
         child.expect("Password.*: ")
-        child.sendline("%s" % info[2])
+        child.sendline(info[2])
         child.expect("Password.*: ")
-        child.sendline("%s" % info[2])
+        child.sendline(info[2])
         child.expect(pexpect.EOF, timeout=None)
         print "Done deploying dev %s." % project
 
@@ -109,7 +109,7 @@ def _get_user_info():
     pass1 = getpass.getpass("Password: ")
     pass2 = getpass.getpass("Password (again): ")
     while pass1 != pass2:
-        print "The passwords you typed do not match. Try again."
+        print "Error: The passwords you typed do not match."
         pass1 = getpass.getpass("Password: ")
         pass2 = getpass.getpass("Password (again): ")
     return [username, email, pass1]
