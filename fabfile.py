@@ -1,13 +1,27 @@
 from fabric.api import local, prefix
 from fabric.contrib.console import confirm
 import random
+import getpass
+import pexpect
 
 
 def deploy_dev():
-    deploy_dev_server()
-    deploy_dev_admin()
-    deploy_dev_docs()
-    deploy_dev_web()
+    info = _get_user_info()
+    for project in ["server", "admin", "docs", "web"]:
+        print "\nDeploying dev %s." % project
+        child = pexpect.spawn("fab deploy_dev_%s" % project)
+        child.expect("Would.*: ", timeout=120)      # Timeout can be changed depending on connection speed.
+        child.sendline("yes")
+        child.expect("Username.*: ")
+        child.sendline("%s" % info[0])
+        child.expect("E-mail.*: ")
+        child.sendline("%s" % info[1])
+        child.expect("Password.*: ")
+        child.sendline("%s" % info[2])
+        child.expect("Password.*: ")
+        child.sendline("%s" % info[2])
+        child.expect(pexpect.EOF, timeout=None)
+        print "Done deploying dev %s." % project
 
 
 def deploy_dev_server():
@@ -70,7 +84,7 @@ def full_clean():
             local("rm -rf %s/bin" % proj)
             local("rm -rf %s/include" % proj)
             local("rm -rf %s/lib" % proj)
-    
+
 
 def _replace_local_settings_for(folder):
     secret_key = _generate_secret_key()
@@ -85,3 +99,17 @@ def _replace_local_settings_for(folder):
 
 def _generate_secret_key():
     return "".join([random.choice("abcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*(-_=+)") for i in range(50)])
+
+
+def _get_user_info():
+    print("The follow information will facilitate the automatic creation of a superuser account " +
+          "for your Django project(s).")
+    username = raw_input("Username: ")
+    email = raw_input("E-mail address: ")
+    pass1 = getpass.getpass("Password: ")
+    pass2 = getpass.getpass("Password (again): ")
+    while pass1 != pass2:
+        print "The passwords you typed do not match. Try again."
+        pass1 = getpass.getpass("Password: ")
+        pass2 = getpass.getpass("Password (again): ")
+    return [username, email, pass1]
