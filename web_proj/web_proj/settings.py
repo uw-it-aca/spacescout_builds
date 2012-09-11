@@ -82,6 +82,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+    'compressor.finders.CompressorFinder',
 )
 
 # Make this unique, and don't share it with anybody.
@@ -127,6 +128,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'spacescout_web',
+    'compressor',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -158,7 +160,16 @@ LOGGING = {
     }
 }
 
+#Django Compressor - LessCSS Compiler
+COMPRESS_ENABLED = True
+#COMPRESS_CSS_FILTERS = (( 'compressor.filters.cssmin.CSSMinFilter' ),)
+#COMPRESS_JS_FILTERS = (( 'compressor.filters.jsmin.JSMinFilter' ),)
+COMPRESS_PRECOMPILERS = (( 'text/less', 'lessc {infile} {outfile}' ),)
+
 try:
     from local_settings import *
 except ImportError:
     pass
+
+
+
