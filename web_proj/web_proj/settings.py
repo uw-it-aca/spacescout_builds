@@ -162,14 +162,9 @@ LOGGING = {
 
 #Django Compressor - LessCSS Compiler
 COMPRESS_ENABLED = True
-#COMPRESS_CSS_FILTERS = (( 'compressor.filters.cssmin.CSSMinFilter' ),)
-#COMPRESS_JS_FILTERS = (( 'compressor.filters.jsmin.JSMinFilter' ),)
-COMPRESS_PRECOMPILERS = (( 'text/less', 'lessc {infile} {outfile}' ),)
+COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
 
 try:
     from local_settings import *
 except ImportError:
     pass
-
-
-
