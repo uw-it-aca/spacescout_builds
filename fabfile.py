@@ -4,7 +4,6 @@ import random
 import getpass
 import pexpect
 import sys
-import time
 
 
 def deploy_dev():
