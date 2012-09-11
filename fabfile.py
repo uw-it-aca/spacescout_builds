@@ -3,25 +3,36 @@ from fabric.contrib.console import confirm
 import random
 import getpass
 import pexpect
+import sys
+import time
 
 
 def deploy_dev():
     info = _get_user_info()
     for project in ["server", "admin", "docs", "web"]:
-        print "\nDeploying dev %s. Please wait..." % project
         child = pexpect.spawn("fab deploy_dev_%s" % project)
-        child.expect("Would.*: ", timeout=120)      # Timeout can be changed depending on connection speed.
+        child.logfile = sys.stdout
+        
+        # The timeout can be changed depending on connection/processor speed.
+        child.expect("Would.*: ", timeout=300)
         child.sendline("yes")
+        
         child.expect("Username.*: ")
         child.sendline(info[0])
+        
         child.expect("E-mail.*: ")
         child.sendline(info[1])
+        
+        # Turn off log during password prompt.
+        child.logfile = None
         child.expect("Password.*: ")
         child.sendline(info[2])
+        
         child.expect("Password.*: ")
         child.sendline(info[2])
+        child.logfile = sys.stdout
+        
         child.expect(pexpect.EOF, timeout=None)
-        print "Done deploying dev %s." % project
 
 
 def deploy_dev_server():
