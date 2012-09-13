@@ -79,6 +79,26 @@ def deploy_dev_web():
             local("python manage.py syncdb")
 
 
+def start_server():
+    local('scripts/start_server.sh')
+
+
+def start_admin():
+    local('scripts/start_admin.sh')
+
+
+def start_docs():
+    local('scripts/start_docs.sh')
+
+
+def start_web():
+    local('scripts/start_web.sh')
+
+
+def start_all():
+    local('screen -c configs/screenrc')
+
+
 def full_clean():
     if confirm("ALL uncommitted changes will be lost. Continue?", default=False):
         local('git reset --hard')
