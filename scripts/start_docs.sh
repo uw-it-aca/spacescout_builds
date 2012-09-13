@@ -1,2 +1,3 @@
 #! /bin/sh
-docs_proj/bin/python docs_proj/manage.py runserver 0.0.0.0:8003
+cd docs_proj
+bin/python manage.py runserver 0.0.0.0:8003

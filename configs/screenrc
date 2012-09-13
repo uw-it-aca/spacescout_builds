@@ -1,14 +1,14 @@
 hardstatus alwayslastline
 hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %d/%m %{W}%c %{g}]'
 
-screen bin/start_server.sh
+screen scripts/start_server.sh
 title "server"
 
-screen bin/start_web.sh
+screen scripts/start_web.sh
 title "web"
 
-screen bin/start_admin.sh
+screen scripts/start_admin.sh
 title "admin"
 
-screen bin/start_docs.sh
+screen scripts/start_docs.sh
 title "docs"
