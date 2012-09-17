@@ -129,6 +129,7 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'spacescout_web',
     'compressor',
+    'templatetag_handlebars',
 )
 
 # A sample logging configuration. The only tangible logging
