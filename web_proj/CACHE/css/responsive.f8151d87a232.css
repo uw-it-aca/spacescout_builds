@@ -1,0 +1,26 @@
+@media screen and (min-width: 481px) {
+  #nav .logo {
+    height: 80px;
+    line-height: 80px;
+  }
+  #nav #filter_container {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 999;
+  }
+  #nav #filter_container #filter_block {
+    height: 300px;
+    opacity: .85;
+  }
+  #map_canvas {
+    width: 62%;
+    float: left;
+  }
+  #info_list {
+    width: 38%;
+    float: right;
+    overflow-y: auto;
+  }
+}

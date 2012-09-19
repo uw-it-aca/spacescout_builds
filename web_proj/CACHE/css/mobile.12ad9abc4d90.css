@@ -1,0 +1,36 @@
+body {
+  background-color: silver;
+}
+#nav {
+  background-color: black;
+  color: purple;
+}
+#nav .logo {
+  height: 80px;
+  line-height: 80px;
+}
+#nav #filter_container #filter_block {
+  display: none;
+  height: 300px;
+  opacity: .85;
+  background-color: #000;
+}
+#map_canvas {
+  height: 300px;
+}
+#info_list {
+  padding: 0;
+  height: 300px;
+  /* list of spaces */
+
+}
+#info_list ul {
+  margin: 10px;
+}
+#info_list ul li {
+  background-color: #fff;
+  color: #000;
+  list-style: none;
+  margin-bottom: 10px;
+  padding: 20px;
+}

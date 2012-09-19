@@ -1,0 +1,42 @@
+@media screen and (min-width: 481px) {
+  #nav .logo {
+    height: 80px;
+    line-height: 80px;
+    font-size: 24px;
+  }
+  #nav #filter_container {
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+  #nav #filter_block .inner-column {
+    width: 33.3%;
+    float: left;
+  }
+  #nav #filter_block .inner-column .inner-block-left {
+    padding-right: 20px;
+  }
+  #nav #filter_block .inner-column .inner-block-right {
+    padding-left: 20px;
+  }
+  #map_canvas {
+    width: 62%;
+    float: left;
+  }
+  #info_list {
+    width: 38%;
+    float: right;
+    overflow-y: auto;
+  }
+  #info_list .list-arrow {
+    display: none;
+  }
+  #info_list #info_items ul {
+    margin: 10px;
+  }
+  .back-top {
+    display: none;
+  }
+}
