@@ -5,6 +5,7 @@
 *.swp
 *.swo
 .DS_Store
+CACHE
 
 # virtualenv stuff
 bin
