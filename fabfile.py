@@ -13,7 +13,7 @@ def deploy_dev():
         child.logfile = sys.stdout
         
         # The timeout can be changed depending on connection/processor speed.
-        child.expect("Would.*: ", timeout=300)
+        child.expect("Would.*: ", timeout=500)
         child.sendline("yes")
         
         child.expect("Username.*: ")
