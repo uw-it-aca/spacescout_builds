@@ -99,7 +99,7 @@ def start_all():
     local('screen -c configs/screenrc')
 
 
-def full_clean():
+def clean_all():
     if confirm("ALL uncommitted changes will be lost. Continue?", default=False):
         local('git reset --hard')
         local('git clean -df')
