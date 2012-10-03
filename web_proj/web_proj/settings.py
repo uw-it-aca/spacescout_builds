@@ -163,7 +163,7 @@ LOGGING = {
 
 #Django Compressor - LessCSS Compiler
 COMPRESS_ENABLED = True
-COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
+#COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
 
 try:
     from local_settings import *
