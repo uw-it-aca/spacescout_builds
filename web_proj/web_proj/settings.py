@@ -101,6 +101,8 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'mobility.middleware.DetectMobileMiddleware',
+    'mobility.middleware.XMobileMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
@@ -163,7 +165,7 @@ LOGGING = {
 
 #Django Compressor - LessCSS Compiler
 COMPRESS_ENABLED = True
-COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
+#COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
 
 try:
     from local_settings import *

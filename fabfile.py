@@ -1,9 +1,10 @@
-from fabric.api import local, prefix
+from fabric.api import local, prefix, prompt
 from fabric.contrib.console import confirm
 import random
 import getpass
 import pexpect
 import sys
+import fabric.utils
 
 
 def deploy_dev():
@@ -13,7 +14,7 @@ def deploy_dev():
         child.logfile = sys.stdout
         
         # The timeout can be changed depending on connection/processor speed.
-        child.expect("Would.*: ", timeout=300)
+        child.expect("Would.*: ", timeout=None)
         child.sendline("yes")
         
         child.expect("Username.*: ")
@@ -26,10 +27,14 @@ def deploy_dev():
         child.logfile = None
         child.expect("Password.*: ")
         child.sendline(info[2])
-        
+
         child.expect("Password.*: ")
         child.sendline(info[2])
         child.logfile = sys.stdout
+        
+        if project is 'web':
+            child.expect("I am about to install node.js.*?")
+            child.sendline(info[3])
         
         child.expect(pexpect.EOF, timeout=None)
 
@@ -77,6 +82,24 @@ def deploy_dev_web():
         _replace_local_settings_for("web_proj")
         with prefix("cd web_proj/"):
             local("python manage.py syncdb")
+    if local("which curl", capture=True) != '' and not 'darwin' in local('uname', capture=True).lower():
+        with prefix("cd web_proj/bin/"):
+            local("wget https://raw.github.com/chuwy/nodeenv/master/nodeenv.py")
+        install_node_js = confirm("I am about to install node.js for you.  It may take a long time, and it is possible to install it yourself.  Okay to proceed?")
+        if install_node_js:
+            with prefix(". web_proj/bin/activate"):
+                with prefix("python web_proj/bin/nodeenv.py -p"):
+                    local("npm install -g less")
+        else:
+            print('Skipping node.js install.  You must install it yourself for the web app to work')
+    else:
+        if local("which curl", capture=True) == '':
+            no_nodeenv_reason = " don't have curl installed "
+        elif 'darwin' in local("uname", capture=True).lower():
+            no_nodeenv_reason = ' are on a Mac '
+        else:
+            no_nodeenv_reason = ' are special '
+        print("You" + no_nodeenv_reason + "so I can't install nodeenv.  You'll have to install node.js yourself.")
 
 
 def start_server():
@@ -99,7 +122,7 @@ def start_all():
     local('screen -c configs/screenrc')
 
 
-def full_clean():
+def clean_all():
     if confirm("ALL uncommitted changes will be lost. Continue?", default=False):
         local('git reset --hard')
         local('git clean -df')
@@ -142,4 +165,7 @@ def _get_user_info():
         print "Error: The passwords you typed do not match."
         pass1 = getpass.getpass("Password: ")
         pass2 = getpass.getpass("Password (again): ")
-    return [username, email, pass1]
+    install_node_js = prompt("The node.js install can take a long time and you can install it yourself.  Would you like me to do it automatically?", default='y').lower()[0]
+    while install_node_js is not ('y' or 'n'):
+        install_node_js = prompt("I didn't understand you.  Do you want node.js installed?  Please say y or n", default='y').lower()[0]
+    return [username, email, pass1, install_node_js]
