@@ -45,6 +45,7 @@ def deploy_dev_server():
         local("git clone git://github.com/abztrakt/spotseeker_server.git server_proj/spotseeker_server")
         local("pip install -r server_proj/spotseeker_server/requirements.txt")
         local("cp configs/dev/server_local_settings.py server_proj/server_proj/local_settings.py")
+        local("cp server_proj/server_proj/sample.wsgi.py server_proj/server_proj/wsgi.py")
         _replace_local_settings_for("server_proj")
         with prefix("cd server_proj/"):
             local("python manage.py syncdb")
@@ -79,6 +80,7 @@ def deploy_dev_web():
         local("git clone git://github.com/abztrakt/spacescout_web.git web_proj/spacescout_web")
         local("pip install -r web_proj/spacescout_web/requirements.txt")
         local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
+        local("cp web_proj/web_proj/sample.wsgi.py web_proj/web_proj/wsgi.py")
         _replace_local_settings_for("web_proj")
         with prefix("cd web_proj/"):
             local("python manage.py syncdb")
