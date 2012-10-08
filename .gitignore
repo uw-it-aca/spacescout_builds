@@ -15,6 +15,7 @@ lib
 # local configs and sqlite3 databases
 *.db
 local_settings.py
+wsgi.py
 
 # Apps - these should all be treated as their own repositories
 spacescout_admin

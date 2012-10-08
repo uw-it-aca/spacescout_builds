@@ -14,8 +14,13 @@ framework.
 
 """
 import os
+import site
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server_proj.settings")
+site.addsitedir('/path/to/spacescout_builds/server_proj/lib/python2.6/site-packages')
+site.addsitedir('/path/to/spacescout_builds/server_proj')
+
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "server_proj.settings")
+os.environ["DJANGO_SETTINGS_MODULE"] = "server_proj.settings"
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
