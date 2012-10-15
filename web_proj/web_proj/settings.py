@@ -96,6 +96,7 @@ TEMPLATE_LOADERS = (
 )
 
 MIDDLEWARE_CLASSES = (
+    'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -106,6 +107,7 @@ MIDDLEWARE_CLASSES = (
     'mobility.middleware.XMobileMiddleware',
     # Uncomment the next line for simple clickjacking protection:
     # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 )
 
 ROOT_URLCONF = 'web_proj.urls'
@@ -167,6 +169,13 @@ LOGGING = {
 #Django Compressor - LessCSS Compiler
 COMPRESS_ENABLED = True
 COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        'LOCATION': 'spacescout-web'
+    }
+}
 
 try:
     from local_settings import *
