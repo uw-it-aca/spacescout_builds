@@ -33,6 +33,14 @@ DEFAULT_ZOOM_LEVEL = '15'
 
 # Disable django compressor
 COMPRESS_ENABLED = False
+COMPRESS_PRECOMPILERS = ()
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'LOCATION': 'spacescout-web'
+    }
+}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
