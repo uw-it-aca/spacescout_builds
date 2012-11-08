@@ -9,7 +9,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-FEEDBACK_EMAIL_RECIPIENT = ['']
+FEEDBACK_EMAIL_RECIPIENT = ['']  # The email addresses that the report a problem form will send email to
+DEFAULT_FROM_EMAIL = 'noreply@example.com' # If the user doesn't specify an email address when they report a problem
 
 DATABASES = {
     'default': {
