@@ -10,7 +10,7 @@ ADMINS = (
 MANAGERS = ADMINS
 
 FEEDBACK_EMAIL_RECIPIENT = ['']  # The email addresses that the report a problem form will send email to
-DEFAULT_FROM_EMAIL = 'noreply@example.com' # If the user doesn't specify an email address when they report a problem
+DEFAULT_FROM_EMAIL = 'noreply@example.com'  # If the user doesn't specify an email address when they report a problem
 
 DATABASES = {
     'default': {
@@ -28,9 +28,22 @@ SS_WEB_SERVER_HOST = 'http://127.0.0.1:8000'
 SS_WEB_OAUTH_KEY = ''
 SS_WEB_OAUTH_SECRET = ''
 
-DEFAULT_CENTER_LATITUDE = '47.655003'
-DEFAULT_CENTER_LONGITUDE = '-122.306864'
-DEFAULT_ZOOM_LEVEL = '15'
+SS_LOCATIONS = {
+    'seattle': {
+        'NAME': 'Seattle Campus',
+        'CENTER_LATITUDE': '47.655003',
+        'CENTER_LONGITUDE': '-122.306864',
+        'ZOOM_LEVEL': '15',
+    },
+    'tacoma': {
+        'NAME': 'Tacoma Campus',
+        'CENTER_LATITUDE': '47.24473',
+        'CENTER_LONGITUDE': '-122.43855',
+        'ZOOM_LEVEL': '15',
+    }
+}
+SS_DEFAULT_LOCATION = 'seattle'
+
 
 # Enable Google Analytics
 #GA_TRACKING_ID = 'UA-XXXXX-Y'
