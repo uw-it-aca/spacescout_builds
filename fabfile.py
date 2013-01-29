@@ -9,7 +9,7 @@ import fabric.utils
 
 def deploy_dev():
     info = _get_user_info()
-    for project in ["server", "admin", "docs", "web"]:
+    for project in ["server", "admin", "web"]:
         child = pexpect.spawn("fab deploy_dev_%s" % project)
         child.logfile = sys.stdout
         
