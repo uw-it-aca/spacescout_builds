@@ -30,6 +30,13 @@ SS_LOCATIONS = {
 }
 SS_DEFAULT_LOCATION = 'seattle'
 
+# This is the list of zoom levels for which the spaces are clustered by building on the map.  An empty list means no building clustering
+SS_BUILDING_CLUSTERING_ZOOM_LEVELS = []
+
+# The ratio (distance between spaces / diagonal distance visible on map) below which spaces will cluster
+# together on the map when not clustering by building
+SS_DISTANCE_CLUSTERING_RATIO = .1
+
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
