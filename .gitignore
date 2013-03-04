@@ -7,10 +7,19 @@
 .DS_Store
 CACHE
 
-# virtualenv stuff
+# virtualenv/nodeenv stuff
 bin
 include
 lib
+admin_proj/install.cfg
+admin_proj/local/
+admin_proj/share/
+admin_proj/src/
+server_proj/local/
+web_proj/install.cfg
+web_proj/local/
+web_proj/share/
+web_proj/src/
 
 # local configs and sqlite3 databases
 *.db

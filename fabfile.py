@@ -9,7 +9,7 @@ import fabric.utils
 
 def deploy_dev():
     info = _get_user_info()
-    for project in ["server", "admin", "docs", "web"]:
+    for project in ["server", "admin", "web"]:
         child = pexpect.spawn("fab deploy_dev_%s" % project)
         child.logfile = sys.stdout
         
@@ -32,7 +32,7 @@ def deploy_dev():
         child.sendline(info[2])
         child.logfile = sys.stdout
         
-        if project is 'web':
+        if project is 'web' or project is 'admin':
             child.expect("I am about to install node.js.*?")
             child.sendline(info[3])
         
@@ -61,6 +61,24 @@ def deploy_dev_admin():
         _replace_local_settings_for("admin_proj")
         with prefix("cd admin_proj/"):
             local("python manage.py syncdb")
+    if local("which curl", capture=True) != '' and not 'darwin' in local('uname', capture=True).lower():
+        with prefix("cd admin_proj/bin/"):
+            local("wget https://raw.github.com/chuwy/nodeenv/master/nodeenv.py")
+        install_node_js = confirm("I am about to install node.js for you.  It may take a long time, and it is possible to install it yourself.  Okay to proceed?")
+        if install_node_js:
+            with prefix(". admin_proj/bin/activate"):
+                with prefix("python admin_proj/bin/nodeenv.py -p"):
+                    local("npm install -g less")
+        else:
+            print('Skipping node.js install.  You must install it yourself for the admin app to work')
+    else:
+        if local("which curl", capture=True) == '':
+            no_nodeenv_reason = " don't have curl installed "
+        elif 'darwin' in local("uname", capture=True).lower():
+            no_nodeenv_reason = ' are on a Mac '
+        else:
+            no_nodeenv_reason = ' are special '
+        print("You" + no_nodeenv_reason + "so I can't install nodeenv.  You'll have to install node.js yourself.")
 
 
 def deploy_dev_docs():
