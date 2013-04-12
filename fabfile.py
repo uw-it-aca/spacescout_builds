@@ -186,6 +186,6 @@ def _get_user_info():
         pass1 = getpass.getpass("Password: ")
         pass2 = getpass.getpass("Password (again): ")
     install_node_js = prompt("The node.js install can take a long time and you can install it yourself.  Would you like me to do it automatically?", default='y').lower()[0]
-    while install_node_js is not ('y' or 'n'):
+    while install_node_js not in ['y', 'n']:
         install_node_js = prompt("I didn't understand you.  Do you want node.js installed?  Please say y or n", default='y').lower()[0]
     return [username, email, pass1, install_node_js]
