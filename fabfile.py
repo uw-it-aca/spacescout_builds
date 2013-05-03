@@ -175,8 +175,7 @@ def _generate_secret_key():
 
 
 def _get_user_info():
-    print("The follow information will facilitate the automatic creation of a superuser account " +
-          "for your Django project(s).")
+    print("The following information will facilitate the automatic creation of a superuser account for your Django project(s).")
     username = raw_input("Username: ")
     email = raw_input("E-mail address: ")
     pass1 = getpass.getpass("Password: ")
