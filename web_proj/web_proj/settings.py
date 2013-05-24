@@ -30,6 +30,8 @@ SS_LOCATIONS = {
 }
 SS_DEFAULT_LOCATION = 'seattle'
 
+SHOW_IOS_SMART_BANNER = False
+
 # This is the list of zoom levels for which the spaces are clustered by building on the map.  An empty list means no building clustering
 SS_BUILDING_CLUSTERING_ZOOM_LEVELS = []
 
@@ -107,6 +109,16 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
     #'django.template.loaders.eggs.Loader',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'django.contrib.messages.context_processors.messages',
+    'spacescout_web.context_processors.show_ios_smart_banner'
 )
 
 MIDDLEWARE_CLASSES = (
