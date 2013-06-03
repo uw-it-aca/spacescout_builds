@@ -9,6 +9,8 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
+LABSTATS_URL = ""
+
 # Values can be one of 'all_ok' or 'oauth'. If using 'oauth', client applications will need an oauth key/secret pair.
 SPOTSEEKER_AUTH_MODULE = 'spotseeker_server.auth.all_ok'
 
