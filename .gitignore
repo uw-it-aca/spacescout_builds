@@ -20,6 +20,10 @@ web_proj/install.cfg
 web_proj/local/
 web_proj/share/
 web_proj/src/
+labstats_proj/install.cfg
+labstats_proj/local/
+labstats_proj/share/
+labstats_proj/src/
 
 # local configs and sqlite3 databases
 *.db
@@ -31,5 +35,6 @@ spacescout_admin
 spacescout_docs
 spotseeker_server
 spacescout_web
+spacescout_labstats
 
 server_proj/space_images/*
