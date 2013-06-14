@@ -2,6 +2,7 @@
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+JSON_PRETTY_PRINT = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
