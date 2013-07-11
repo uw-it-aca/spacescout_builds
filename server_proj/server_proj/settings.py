@@ -2,6 +2,7 @@
 
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
+JSON_PRETTY_PRINT = False
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -117,7 +118,7 @@ CACHES = {
 }
 
 
-CACHE_MIDDLEWARE_SECONDS = 60*60  # Cache what we can for an hour
+CACHE_MIDDLEWARE_SECONDS = 60 * 60  # Cache what we can for an hour
 
 INSTALLED_APPS = (
     'django.contrib.auth',
