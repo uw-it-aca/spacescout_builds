@@ -118,7 +118,10 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'django.contrib.messages.context_processors.messages',
-    'spacescout_web.context_processors.show_ios_smart_banner'
+    'spacescout_web.context_processors.show_ios_smart_banner',
+    'spacescout_web.context_processors.less_not_compiled',
+    'spacescout_web.context_processors.is_mobile',
+    'spacescout_web.context_processors.ga_tracking_id'
 )
 
 MIDDLEWARE_CLASSES = (
