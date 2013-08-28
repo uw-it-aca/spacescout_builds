@@ -41,3 +41,175 @@ MEDIA_URL = 'http://localhost:8001/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
+
+# Space Definition
+SS_SPACE_DEFINITIONS = [
+    {
+        'section': 'location',
+        'fields': [
+            {
+                'name': 'Campus',
+                'value': {
+                    'key': 'extended_info.campus'
+                }
+            },
+            {
+                'name': 'Building',
+                'value': {
+                    'key': 'location.building_name'
+                }
+            },
+            {
+                'name': 'Description',
+                'value': {
+                    'key': 'extended_info.location_description'
+                }
+            },
+            {
+                'name': 'Orientation',
+                'value': {
+                    'key': 'extended_info.orientation'
+                }
+            },
+            {
+                'name': 'Lat & Long',
+                'value': [
+                    {
+                        'key': 'location.latitude'
+                    },
+                    {
+                        'key': 'location.longitude'
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        'section': 'hours',
+        'fields': [
+            {
+                'name': 'Notes',
+                'value': {
+                    'key': 'extended_info.hours_notes'
+                }
+            },
+            {
+                'name': 'Cafe Hours',
+                'value': {
+                    'key': 'extended_info.cafe_hours'
+                }
+            }
+        ]
+    },
+    {
+        'section': 'access',
+        'fields': [
+            {
+                'name': 'Access Notes',
+                'value': {
+                    'key': 'extended_info.access_notes'
+                }
+            },
+            {
+                'name': 'Reservability',
+                'value': {
+                    'key': 'extended_info.reservable',
+                    'map': {
+                        'true': 'canreserve',
+                        'reservations': 'mustreserve'
+                    },
+                    'format': '<em>%s</em>'
+                }
+            },
+            {
+                'value': {
+                    'key': 'extended_info.reservation_notes'
+                }
+            }
+        ]
+    },
+    {
+        'section': 'resources & environment',
+        'fields': [
+            {
+                'name': 'Resources',
+                'value': [
+                    {
+                        'key': 'extended_info.has_outlets',
+                        'boolean': {
+                            'true': 'outlets'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_projector',
+                        'boolean': {
+                            'true': 'projector'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_displays',
+                        'boolean': {
+                            'true': 'displays'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_whiteboards',
+                        'boolean': {
+                            'true': 'whiteboards'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_printing',
+                        'boolean': {
+                            'true': 'printing'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_scanner',
+                        'boolean': {
+                            'true': 'scanner'
+                        }
+                    },
+                    {
+                        'key': 'extended_info.has_computers',
+                        'boolean': {
+                            'true': 'computers'
+                        }
+                    }
+                ]
+            },
+            {
+                'name': 'Capacity',
+                'value': {
+                    'key': 'capacity',
+                    'format': 'Seats %s'
+                }
+            },
+            {
+                'name': 'Lighting',
+                'value': {
+                    'key': 'extended_info.has_natural_light',
+                    'boolean': {
+                        'true': 'natural',
+                        'false': 'unnatural'
+                    }
+                }
+            },
+            {
+                'name': 'Noise Level',
+                'value': {
+                    'key': 'extended_info.noise_level'
+                }
+            },
+            {
+                'name': 'Food & Coffee',
+                'value': {
+                    'key': 'extended_info.food_nearby'
+                }
+            }
+        ]
+    },
+    {
+        'section': 'images'
+    }
+]
