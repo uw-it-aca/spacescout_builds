@@ -61,18 +61,21 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Description',
+                'help': 'description_help',
                 'value': {
                     'key': 'extended_info.location_description'
                 }
             },
             {
                 'name': 'Orientation',
+                'help': 'orientation_help',
                 'value': {
                     'key': 'extended_info.orientation'
                 }
             },
             {
                 'name': 'Lat & Long',
+                'help': 'latlong_help',
                 'value': [
                     {
                         'key': 'location.latitude'
@@ -90,13 +93,21 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Notes',
                 'value': {
-                    'key': 'extended_info.hours_notes'
+                    'key': 'extended_info.hours_notes',
+                    'edit': {
+                        'tag': 'textarea',
+                        'placeholder': 'hours_notes'
+                    }
                 }
             },
             {
                 'name': 'Cafe Hours',
                 'value': {
-                    'key': 'extended_info.cafe_hours'
+                    'key': 'extended_info.cafe_hours',
+                    'edit': {
+                        'tag': 'textarea',
+                        'placeholder': 'cafe_notes'
+                    }
                 }
             }
         ]
@@ -107,7 +118,11 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Access Notes',
                 'value': {
-                    'key': 'extended_info.access_notes'
+                    'key': 'extended_info.access_notes',
+                    'edit': {
+                        'tag': 'textarea',
+                        'placeholder': 'access_notes'
+                    }
                 }
             },
             {
@@ -124,7 +139,11 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'value': {
-                    'key': 'extended_info.reservation_notes'
+                    'key': 'extended_info.reservation_notes',
+                    'edit': {
+                        'tag': 'textarea',
+                        'placeholder': 'reservation_notes'
+                    }
                 }
             }
         ]
