@@ -50,7 +50,10 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Campus',
                 'value': {
-                    'key': 'extended_info.campus'
+                    'key': 'extended_info.campus',
+                    'edit': {
+                        'tag': 'select'
+                     }
                 }
             },
             {
@@ -62,6 +65,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Description',
                 'help': 'description_help',
+                'required': True,
                 'value': {
                     'key': 'extended_info.location_description'
                 }
@@ -76,6 +80,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Lat & Long',
                 'help': 'latlong_help',
+                'required': True,
                 'value': [
                     {
                         'key': 'location.latitude'
@@ -134,7 +139,7 @@ SS_SPACE_DEFINITIONS = [
                         'true': 'canreserve',
                         'reservations': 'mustreserve'
                     },
-                    'format': '<em>%s</em>'
+                    'format': '<em>{0}</em>'
                 }
             },
             {
@@ -153,76 +158,56 @@ SS_SPACE_DEFINITIONS = [
         'fields': [
             {
                 'name': 'Resources',
+                "help": "all-that-apply",
                 'value': [
                     {
-                        'key': 'extended_info.has_outlets',
-                        'boolean': {
-                            'true': 'outlets'
-                        }
+                        'key': 'extended_info.has_outlets'
                     },
                     {
-                        'key': 'extended_info.has_projector',
-                        'boolean': {
-                            'true': 'projector'
-                        }
+                        'key': 'extended_info.has_projector'
                     },
                     {
-                        'key': 'extended_info.has_displays',
-                        'boolean': {
-                            'true': 'displays'
-                        }
+                        'key': 'extended_info.has_displays'
                     },
                     {
-                        'key': 'extended_info.has_whiteboards',
-                        'boolean': {
-                            'true': 'whiteboards'
-                        }
+                        'key': 'extended_info.has_whiteboards'
                     },
                     {
-                        'key': 'extended_info.has_printing',
-                        'boolean': {
-                            'true': 'printing'
-                        }
+                        'key': 'extended_info.has_printing'
                     },
                     {
-                        'key': 'extended_info.has_scanner',
-                        'boolean': {
-                            'true': 'scanner'
-                        }
+                        'key': 'extended_info.has_scanner'
                     },
                     {
-                        'key': 'extended_info.has_computers',
-                        'boolean': {
-                            'true': 'computers'
-                        }
+                        'key': 'extended_info.has_computers'
                     }
                 ]
             },
             {
                 'name': 'Capacity',
+                'required': True,
                 'value': {
                     'key': 'capacity',
-                    'format': 'Seats %s'
+                    'format': 'Seats {0}'
                 }
             },
             {
                 'name': 'Lighting',
+                'required': True,
                 'value': {
-                    'key': 'extended_info.has_natural_light',
-                    'boolean': {
-                        'true': 'natural',
-                        'false': 'unnatural'
-                    }
+                    'key': 'extended_info.has_natural_light'
                 }
             },
             {
                 'name': 'Noise Level',
+                'required': True,
                 'value': {
                     'key': 'extended_info.noise_level'
                 }
             },
             {
                 'name': 'Food & Coffee',
+                'required': True,
                 'value': {
                     'key': 'extended_info.food_nearby'
                 }
