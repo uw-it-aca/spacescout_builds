@@ -135,8 +135,8 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.reservable',
                     'map': {
-                        None: 'cannotreserve',
                         'true': 'canreserve',
+                        None: 'cannotreserve',
                         'reservations': 'mustreserve'
                     },
                     'format': '<em>{0}</em>'
