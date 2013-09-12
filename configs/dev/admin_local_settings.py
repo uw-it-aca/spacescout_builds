@@ -45,6 +45,42 @@ SECRET_KEY = ''
 # Space Definition
 SS_SPACE_DEFINITIONS = [
     {
+        'section': 'basic',
+        'fields': [
+            {
+                'name': 'Space Name',
+                'required': True,
+                'value': {
+                    'key': 'name'
+                }
+            },
+            {
+                'name': 'Space Type',
+                'required': True,
+                'help': 'all-that-apply',
+                'value': {
+                    'key': 'type',
+                    'edit': {
+                        'multi_select': True
+                    }
+                }
+            },
+            {
+                'name': 'Owner',
+                'required': True,
+                'value': {
+                    'key': 'manager'
+                }
+            },
+            {
+                'name': 'Editors',
+                'value': {
+                    'key': 'editors'
+                }
+            }
+        ]
+    },
+    {
         'section': 'location',
         'fields': [
             {
@@ -154,7 +190,7 @@ SS_SPACE_DEFINITIONS = [
         ]
     },
     {
-        'section': 'resources & environment',
+        'section': 'resources',
         'fields': [
             {
                 'name': 'Resources',
@@ -184,16 +220,25 @@ SS_SPACE_DEFINITIONS = [
                 ]
             },
             {
+                'name': 'Has LabStats',
+                'value' : {
+                    'key': 'extended_info.has_labstats'
+                }
+            },
+            {
                 'name': 'Capacity',
                 'required': True,
                 'value': {
                     'key': 'capacity',
-                    'format': 'Seats {0}'
+                    'format': 'Seats {0}',
+                    'edit': {
+                        'placeholder': 'seats_available'
+                    }
+
                 }
             },
             {
                 'name': 'Lighting',
-                'required': True,
                 'value': {
                     'key': 'extended_info.has_natural_light'
                 }
@@ -209,7 +254,10 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Food & Coffee',
                 'required': True,
                 'value': {
-                    'key': 'extended_info.food_nearby'
+                    'key': 'extended_info.food_nearby',
+                    'edit' : {
+                        'allow_none': True
+                    }
                 }
             }
         ]
