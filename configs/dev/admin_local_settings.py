@@ -42,6 +42,44 @@ MEDIA_URL = 'http://localhost:8001/media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
+# Fields required for space creation
+SS_SPACE_CREATION_FIELDS = [
+    {
+        'name': 'Campus',
+        'value': {
+            'key': 'extended_info.campus',
+            'edit': {
+                'tag': 'select'
+                }
+            }
+        },
+    {
+        'name': 'Space Name',
+        'required': True,
+        'value': {
+            'key': 'name'
+            }
+        },
+    {
+        'name': 'Space Type',
+        'required': True,
+        'help': 'all-that-apply',
+        'value': {
+            'key': 'type',
+            'edit': {
+                'multi_select': True
+                }
+            }
+        },
+    {
+        'name': 'Owner',
+        'required': True,
+        'value': {
+            'key': 'manager'
+            }
+    }
+]
+
 # Space Definition
 SS_SPACE_DEFINITIONS = [
     {
@@ -119,10 +157,12 @@ SS_SPACE_DEFINITIONS = [
                 'required': True,
                 'value': [
                     {
-                        'key': 'location.latitude'
+                        'key': 'location.latitude',
+                        'placeholder': 'latitute'
                     },
                     {
-                        'key': 'location.longitude'
+                        'key': 'location.longitude',
+                        'placeholder': 'longitude'
                     }
                 ]
             }
