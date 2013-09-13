@@ -260,7 +260,7 @@ SS_SPACE_DEFINITIONS = [
                 ]
             },
             {
-                'name': 'Has LabStats',
+                'name': 'labstats',
                 'value' : {
                     'key': 'extended_info.has_labstats'
                 }
@@ -284,14 +284,14 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
-                'name': 'Noise Level',
+                'name': 'noise_level',
                 'required': True,
                 'value': {
                     'key': 'extended_info.noise_level'
                 }
             },
             {
-                'name': 'Food & Coffee',
+                'name': 'food_coffee',
                 'required': True,
                 'value': {
                     'key': 'extended_info.food_nearby',
