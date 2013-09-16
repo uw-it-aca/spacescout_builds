@@ -165,7 +165,7 @@ LOGGING = {
 }
 
 #Django Compressor - LessCSS Compiler
-COMPRESS_ENABLED = True
+COMPRESS_ENABLED = False
 COMPRESS_PRECOMPILERS = (('text/less', 'lessc {infile} {outfile}'),)
 
 try:

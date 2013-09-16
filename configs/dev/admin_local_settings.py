@@ -152,17 +152,21 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
-                'name': 'Lat & Long',
+                'name': 'latlong',
                 'help': 'latlong_help',
                 'required': True,
                 'value': [
                     {
                         'key': 'location.latitude',
-                        'placeholder': 'latitute'
+                        'edit': {
+                            'placeholder': 'latitude' #'47.653796'
+                        }
                     },
                     {
                         'key': 'location.longitude',
-                        'placeholder': 'longitude'
+                        'edit': {
+                            'placeholder': 'longitude' #'-122.307787'
+                        }
                     }
                 ]
             }
@@ -182,7 +186,7 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
-                'name': 'Cafe Hours',
+                'name': 'cafe_hours',
                 'value': {
                     'key': 'extended_info.cafe_hours',
                     'edit': {
@@ -197,12 +201,12 @@ SS_SPACE_DEFINITIONS = [
         'section': 'access',
         'fields': [
             {
-                'name': 'Access Notes',
+                'name': 'access_notes',
                 'value': {
                     'key': 'extended_info.access_notes',
                     'edit': {
                         'tag': 'textarea',
-                        'placeholder': 'access_notes'
+                        'placeholder': 'access_hours_notes'
                     }
                 }
             },
@@ -210,6 +214,9 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Reservability',
                 'value': {
                     'key': 'extended_info.reservable',
+                    'edit': {
+                        'requires': 'extended_info.reservation_notes'
+                    },
                     'map': {
                         'true': 'canreserve',
                         None: 'cannotreserve',
@@ -267,7 +274,6 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Capacity',
-                'required': True,
                 'value': {
                     'key': 'capacity',
                     'format': 'Seats {0}',
@@ -292,7 +298,6 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'food_coffee',
-                'required': True,
                 'value': {
                     'key': 'extended_info.food_nearby',
                     'edit' : {
