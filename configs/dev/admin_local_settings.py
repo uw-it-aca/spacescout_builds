@@ -57,13 +57,16 @@ SS_SPACE_CREATION_FIELDS = [
         'name': 'Space Name',
         'required': True,
         'value': {
-            'key': 'name'
+            'key': 'name',
+            'edit': {
+                    'placeholder': 'Enter a name for this space'
+                }
             }
         },
     {
         'name': 'Space Type',
         'required': True,
-        'help': 'all-that-apply',
+        'help': 'choose_up_to_2',
         'value': {
             'key': 'type',
             'edit': {
@@ -75,7 +78,10 @@ SS_SPACE_CREATION_FIELDS = [
         'name': 'Owner',
         'required': True,
         'value': {
-            'key': 'manager'
+            'key': 'manager',
+            'edit': {
+                'placeholder': 'manager_placeholder'
+                }
             }
     }
 ]
@@ -89,13 +95,16 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Space Name',
                 'required': True,
                 'value': {
-                    'key': 'name'
+                    'key': 'name',
+                    'edit': {
+                        'placeholder': 'name_placeholder'
+                    }
                 }
             },
             {
                 'name': 'Space Type',
                 'required': True,
-                'help': 'all-that-apply',
+                'help': 'choose_up_to_2',
                 'value': {
                     'key': 'type',
                     'edit': {
@@ -107,13 +116,19 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Owner',
                 'required': True,
                 'value': {
-                    'key': 'manager'
+                    'key': 'manager',
+                    'edit': {
+                        'placeholder': 'manager_placeholder'
+                    }
                 }
             },
             {
                 'name': 'Editors',
                 'value': {
-                    'key': 'editors'
+                    'key': 'editors',
+                    'edit': {
+                        'placeholder': 'editor_placeholder'
+                    }
                 }
             }
         ]
@@ -141,14 +156,20 @@ SS_SPACE_DEFINITIONS = [
                 'help': 'description_help',
                 'required': True,
                 'value': {
-                    'key': 'extended_info.location_description'
+                    'key': 'extended_info.location_description',
+                    'edit': {
+                        'placeholder': 'description_placeholder'
+                    }
                 }
             },
             {
                 'name': 'Orientation',
                 'help': 'orientation_help',
                 'value': {
-                    'key': 'extended_info.orientation'
+                    'key': 'extended_info.orientation',
+                    'edit': {
+                        'placeholder': 'orientation_placeholder'
+                    }
                 }
             },
             {
@@ -159,13 +180,13 @@ SS_SPACE_DEFINITIONS = [
                     {
                         'key': 'location.latitude',
                         'edit': {
-                            'placeholder': 'latitude' #'47.653796'
+                            'placeholder': 'Latitude' #'47.653796'
                         }
                     },
                     {
                         'key': 'location.longitude',
                         'edit': {
-                            'placeholder': 'longitude' #'-122.307787'
+                            'placeholder': 'Longitude' #'-122.307787'
                         }
                     }
                 ]
@@ -226,6 +247,7 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
+                'name': 'Reservation Notes',
                 'value': {
                     'key': 'extended_info.reservation_notes',
                     'edit': {
