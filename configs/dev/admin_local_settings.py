@@ -86,6 +86,9 @@ SS_SPACE_CREATION_FIELDS = [
     }
 ]
 
+# Key Used to Describe Spaces
+SS_SPACE_DESCRIPTION = 'extended_info.location_description'
+
 # Space Definition
 SS_SPACE_DEFINITIONS = [
     {
