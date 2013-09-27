@@ -14,8 +14,20 @@ framework.
 
 """
 import os
+import site
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "admin_proj.settings")
+site.addsitedir('/path/to/spacescout_builds/admin_proj/lib/python2.6/site-packages')
+site.addsitedir('/path/to/spacescout_builds/admin_proj')
+
+# Make sure less can find node
+nodepath = '/data/ctlt/spacescout/admin_proj/bin'
+try:
+    os.environ["PATH"] += os.pathsep + nodepath
+except KeyError:
+    os.environ["PATH"] = nodepath
+
+#os.environ.setdefault("DJANGO_SETTINGS_MODULE", "web_proj.settings")
+os.environ["DJANGO_SETTINGS_MODULE"] = "admin_proj.settings"
 
 # This application object is used by any WSGI server configured to use this
 # file. This includes Django's development server, if the WSGI_APPLICATION
