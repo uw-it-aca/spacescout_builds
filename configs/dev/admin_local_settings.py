@@ -30,6 +30,10 @@ SS_WEB_OAUTH_SECRET = ''
 # In a Windows environment this must be set to your system time zone.
 #TIME_ZONE = 'America/Chicago'
 
+# Leading portion of the URL representing the location
+# the web server is configured to expose in the application's URL
+APP_URL_ROOT = '/'
+
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = ''
@@ -80,6 +84,7 @@ SS_SPACE_CREATION_FIELDS = [
         'value': {
             'key': 'manager',
             'edit': {
+                'default': '{{ username }}',
                 'placeholder': 'manager_placeholder'
                 }
             }
@@ -150,8 +155,21 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Building',
+                'required': True,
                 'value': {
                     'key': 'location.building_name'
+                }
+            },
+            {
+                'name': 'Floor',
+                'value': {
+                    'key': 'location.floor'
+                }
+            },
+            {
+                'name': 'room_number',
+                'value': {
+                    'key': 'location.room_number'
                 }
             },
             {
@@ -197,6 +215,7 @@ SS_SPACE_DEFINITIONS = [
         ]
     },
     {
+        # hours field managed internally
         'section': 'hours',
         'fields': [
             {
@@ -292,12 +311,6 @@ SS_SPACE_DEFINITIONS = [
                 ]
             },
             {
-                'name': 'labstats',
-                'value' : {
-                    'key': 'extended_info.has_labstats'
-                }
-            },
-            {
                 'name': 'Capacity',
                 'value': {
                     'key': 'capacity',
@@ -333,6 +346,7 @@ SS_SPACE_DEFINITIONS = [
         ]
     },
     {
+        # images managed dinternally
         'section': 'images'
     }
 ]
