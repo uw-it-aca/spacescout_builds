@@ -116,7 +116,8 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'type',
                     'edit': {
-                        'multi_select': True
+                        'multi_select': True,
+                        'limit': 2
                     }
                 }
             },
@@ -184,16 +185,6 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
-                'name': 'Orientation',
-                'help': 'orientation_help',
-                'value': {
-                    'key': 'extended_info.orientation',
-                    'edit': {
-                        'placeholder': 'orientation_placeholder'
-                    }
-                }
-            },
-            {
                 'name': 'latlong',
                 'help': 'latlong_help',
                 'required': True,
@@ -216,7 +207,7 @@ SS_SPACE_DEFINITIONS = [
     },
     {
         # hours field managed internally
-        'section': 'hours',
+        'section': 'hours_access',
         'fields': [
             {
                 'name': 'Notes',
@@ -237,12 +228,7 @@ SS_SPACE_DEFINITIONS = [
                         'placeholder': 'cafe_notes'
                     }
                 }
-            }
-        ]
-    },
-    {
-        'section': 'access',
-        'fields': [
+            },
             {
                 'name': 'access_notes',
                 'value': {
@@ -258,6 +244,7 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.reservable',
                     'edit': {
+                        'default': 0,
                         'requires': 'extended_info.reservation_notes'
                     },
                     'map': {
