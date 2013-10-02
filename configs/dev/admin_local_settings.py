@@ -61,10 +61,7 @@ SS_SPACE_CREATION_FIELDS = [
         'name': 'Space Name',
         'required': True,
         'value': {
-            'key': 'name',
-            'edit': {
-                    'placeholder': 'Enter a name for this space'
-                }
+            'key': 'name'
             }
         },
     {
@@ -84,8 +81,7 @@ SS_SPACE_CREATION_FIELDS = [
         'value': {
             'key': 'manager',
             'edit': {
-                'default': '{{ username }}',
-                'placeholder': 'manager_placeholder'
+                'default': '{{ username }}'
                 }
             }
     }
@@ -103,10 +99,7 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Space Name',
                 'required': True,
                 'value': {
-                    'key': 'name',
-                    'edit': {
-                        'placeholder': 'name_placeholder'
-                    }
+                    'key': 'name'
                 }
             },
             {
@@ -125,19 +118,13 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Owner',
                 'required': True,
                 'value': {
-                    'key': 'manager',
-                    'edit': {
-                        'placeholder': 'manager_placeholder'
-                    }
+                    'key': 'manager'
                 }
             },
             {
                 'name': 'Editors',
                 'value': {
-                    'key': 'editors',
-                    'edit': {
-                        'placeholder': 'editor_placeholder'
-                    }
+                    'key': 'editors'
                 }
             }
         ]
@@ -178,10 +165,7 @@ SS_SPACE_DEFINITIONS = [
                 'help': 'description_help',
                 'required': True,
                 'value': {
-                    'key': 'extended_info.location_description',
-                    'edit': {
-                        'placeholder': 'description_placeholder'
-                    }
+                    'key': 'extended_info.location_description'
                 }
             },
             {
@@ -190,16 +174,10 @@ SS_SPACE_DEFINITIONS = [
                 'required': True,
                 'value': [
                     {
-                        'key': 'location.latitude',
-                        'edit': {
-                            'placeholder': 'Latitude' #'47.653796'
-                        }
+                        'key': 'location.latitude'
                     },
                     {
-                        'key': 'location.longitude',
-                        'edit': {
-                            'placeholder': 'Longitude' #'-122.307787'
-                        }
+                        'key': 'location.longitude'
                     }
                 ]
             }
@@ -214,8 +192,7 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.hours_notes',
                     'edit': {
-                        'tag': 'textarea',
-                        'placeholder': 'hours_notes'
+                        'tag': 'textarea'
                     }
                 }
             },
@@ -224,8 +201,7 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.cafe_hours',
                     'edit': {
-                        'tag': 'textarea',
-                        'placeholder': 'cafe_notes'
+                        'tag': 'textarea'
                     }
                 }
             },
@@ -234,8 +210,7 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.access_notes',
                     'edit': {
-                        'tag': 'textarea',
-                        'placeholder': 'access_hours_notes'
+                        'tag': 'textarea'
                     }
                 }
             },
@@ -260,8 +235,7 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.reservation_notes',
                     'edit': {
-                        'tag': 'textarea',
-                        'placeholder': 'reservation_notes'
+                        'tag': 'textarea'
                     }
                 }
             }
@@ -301,10 +275,7 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Capacity',
                 'value': {
                     'key': 'capacity',
-                    'format': 'Seats {0}',
-                    'edit': {
-                        'placeholder': 'seats_available'
-                    }
+                    'format': 'Seats {0}'
 
                 }
             },
