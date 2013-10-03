@@ -97,6 +97,7 @@ SS_SPACE_DEFINITIONS = [
         'fields': [
             {
                 'name': 'Space Name',
+                'help': 'space_name_help',
                 'required': True,
                 'value': {
                     'key': 'name'
@@ -105,7 +106,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Space Type',
                 'required': True,
-                'help': 'choose_up_to_2',
+                'help': 'space_type_help',
                 'value': {
                     'key': 'type',
                     'edit': {
@@ -117,12 +118,14 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Owner',
                 'required': True,
+                'help': 'owner_help',
                 'value': {
                     'key': 'manager'
                 }
             },
             {
                 'name': 'Editors',
+                'help': 'editors_help',
                 'value': {
                     'key': 'editors'
                 }
@@ -150,12 +153,14 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Floor',
+                'help': 'floor_help',
                 'value': {
                     'key': 'location.floor'
                 }
             },
             {
                 'name': 'room_number',
+                'help': 'room_number_help',
                 'value': {
                     'key': 'location.room_number'
                 }
@@ -188,7 +193,8 @@ SS_SPACE_DEFINITIONS = [
         'section': 'hours_access',
         'fields': [
             {
-                'name': 'Notes',
+                'name': 'Hours Notes',
+                'help': 'hours_notes_help',
                 'value': {
                     'key': 'extended_info.hours_notes',
                     'edit': {
@@ -198,6 +204,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'cafe_hours',
+                'help': 'cafe_hours_help',
                 'value': {
                     'key': 'extended_info.cafe_hours',
                     'edit': {
@@ -207,6 +214,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'access_notes',
+                'help': 'access_notes_help',
                 'value': {
                     'key': 'extended_info.access_notes',
                     'edit': {
@@ -216,6 +224,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Reservability',
+                'help': 'reservability_help',
                 'value': {
                     'key': 'extended_info.reservable',
                     'edit': {
@@ -232,6 +241,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Reservation Notes',
+                'help': 'reservation_notes_help',
                 'value': {
                     'key': 'extended_info.reservation_notes',
                     'edit': {
@@ -246,7 +256,7 @@ SS_SPACE_DEFINITIONS = [
         'fields': [
             {
                 'name': 'Resources',
-                "help": "all-that-apply",
+                "help": "resources_help",
                 'value': [
                     {
                         'key': 'extended_info.has_outlets'
@@ -273,6 +283,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Capacity',
+                'help': 'capacity_help',
                 'value': {
                     'key': 'capacity',
                     'format': 'Seats {0}'
@@ -287,6 +298,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'noise_level',
+                'help': 'noise_level_help',
                 'required': True,
                 'value': {
                     'key': 'extended_info.noise_level'
@@ -294,6 +306,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'food_coffee',
+                'help': 'food_coffee_help',
                 'value': {
                     'key': 'extended_info.food_nearby',
                     'edit' : {
