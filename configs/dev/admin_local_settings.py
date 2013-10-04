@@ -215,6 +215,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'access_notes',
                 'help': 'access_notes_help',
+                'more_help': 'access_notes_more_help',
                 'value': {
                     'key': 'extended_info.access_notes',
                     'edit': {
@@ -242,6 +243,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Reservation Notes',
                 'help': 'reservation_notes_help',
+                'more_help': 'reservation_notes_more_help',
                 'value': {
                     'key': 'extended_info.reservation_notes',
                     'edit': {
@@ -299,6 +301,7 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'noise_level',
                 'help': 'noise_level_help',
+                'more_help': 'noise_level_more_help',
                 'required': True,
                 'value': {
                     'key': 'extended_info.noise_level'
