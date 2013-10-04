@@ -67,14 +67,17 @@ SS_SPACE_CREATION_FIELDS = [
     {
         'name': 'Space Type',
         'required': True,
-        'help': 'choose_up_to_2',
+        'help': {
+            'text': 'choose_up_to_2'
+        },
         'value': {
             'key': 'type',
             'edit': {
-                'multi_select': True
-                }
+                'multi_select': True,
+                'select_limit': 2
             }
-        },
+        }
+    },
     {
         'name': 'Owner',
         'required': True,
@@ -97,7 +100,9 @@ SS_SPACE_DEFINITIONS = [
         'fields': [
             {
                 'name': 'Space Name',
-                'help': 'space_name_help',
+                'help': {
+                    'text': 'space_name_help'
+                },
                 'required': True,
                 'value': {
                     'key': 'name'
@@ -106,7 +111,9 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Space Type',
                 'required': True,
-                'help': 'space_type_help',
+                'help': {
+                    'text': 'choose_up_to_2'
+                },
                 'value': {
                     'key': 'type',
                     'edit': {
@@ -118,14 +125,18 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Owner',
                 'required': True,
-                'help': 'owner_help',
+                'help': {
+                    'text': 'owner_help'
+                },
                 'value': {
                     'key': 'manager'
                 }
             },
             {
                 'name': 'Editors',
-                'help': 'editors_help',
+                'help': {
+                    'text': 'editors_help'
+                },
                 'value': {
                     'key': 'editors'
                 }
@@ -148,26 +159,37 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Building',
                 'required': True,
                 'value': {
-                    'key': 'location.building_name'
+                    'key': 'location.building_name',
+                    'edit': {
+                        'dependency' : {
+                            'key': 'extended_info.campus'
+                        }
+                    }
                 }
             },
             {
                 'name': 'Floor',
-                'help': 'floor_help',
+                'help': {
+                    'text': 'floor_help'
+                },
                 'value': {
                     'key': 'location.floor'
                 }
             },
             {
                 'name': 'room_number',
-                'help': 'room_number_help',
+                'help': {
+                    'text': 'room_number_help'
+                },
                 'value': {
                     'key': 'location.room_number'
                 }
             },
             {
                 'name': 'Description',
-                'help': 'description_help',
+                'help': {
+                    'text': 'description_help'
+                },
                 'required': True,
                 'value': {
                     'key': 'extended_info.location_description'
@@ -175,7 +197,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'latlong',
-                'help': 'latlong_help',
+                'help': {
+                    'text': 'latlong_help'
+                },
                 'required': True,
                 'value': [
                     {
@@ -193,8 +217,10 @@ SS_SPACE_DEFINITIONS = [
         'section': 'hours_access',
         'fields': [
             {
-                'name': 'Hours Notes',
-                'help': 'hours_notes_help',
+                'name': 'notes',
+                'help': {
+                    'text': 'hours_notes_help'
+                },
                 'value': {
                     'key': 'extended_info.hours_notes',
                     'edit': {
@@ -204,7 +230,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'cafe_hours',
-                'help': 'cafe_hours_help',
+                'help': {
+                    'text': 'cafe_hours_help'
+                },
                 'value': {
                     'key': 'extended_info.cafe_hours',
                     'edit': {
@@ -214,8 +242,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'access_notes',
-                'help': 'access_notes_help',
-                'more_help': 'access_notes_more_help',
+                'help': {
+                    'text': 'access_notes_help'
+                },
                 'value': {
                     'key': 'extended_info.access_notes',
                     'edit': {
@@ -225,7 +254,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Reservability',
-                'help': 'reservability_help',
+                'help': {
+                    'text': 'reservability_help'
+                },
                 'value': {
                     'key': 'extended_info.reservable',
                     'edit': {
@@ -242,8 +273,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Reservation Notes',
-                'help': 'reservation_notes_help',
-                'more_help': 'reservation_notes_more_help',
+                'help': {
+                    'text': 'reservation_notes_help'
+                },
                 'value': {
                     'key': 'extended_info.reservation_notes',
                     'edit': {
@@ -258,7 +290,9 @@ SS_SPACE_DEFINITIONS = [
         'fields': [
             {
                 'name': 'Resources',
-                "help": "resources_help",
+                "help": {
+                    'text': "resources_help"
+                },
                 'value': [
                     {
                         'key': 'extended_info.has_outlets'
@@ -285,7 +319,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Capacity',
-                'help': 'capacity_help',
+                'help': {
+                    'text': 'capacity_help'
+                },
                 'value': {
                     'key': 'capacity',
                     'format': 'Seats {0}'
@@ -300,8 +336,13 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'noise_level',
-                'help': 'noise_level_help',
-                'more_help': 'noise_level_more_help',
+                'help': {
+                    'text': 'noise_level_help',
+                    'expanded': {
+                        'text': 'noise_level_more_help',
+                        'link': 'See Examples'
+                    }
+                },
                 'required': True,
                 'value': {
                     'key': 'extended_info.noise_level'
@@ -309,7 +350,9 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'food_coffee',
-                'help': 'food_coffee_help',
+                'help': {
+                    'text': 'food_coffee_help'
+                },
                 'value': {
                     'key': 'extended_info.food_nearby',
                     'edit' : {
