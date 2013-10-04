@@ -188,7 +188,11 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'Description',
                 'help': {
-                    'text': 'description_help'
+                    'text': 'description_help',
+                    'expanded': {
+                        'text': 'description_more_help',
+                        'link': 'See Guidelines'
+                    }
                 },
                 'required': True,
                 'value': {
