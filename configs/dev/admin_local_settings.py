@@ -49,15 +49,6 @@ SECRET_KEY = ''
 # Fields required for space creation
 SS_SPACE_CREATION_FIELDS = [
     {
-        'name': 'Campus',
-        'value': {
-            'key': 'extended_info.campus',
-            'edit': {
-                'tag': 'select'
-                }
-            }
-        },
-    {
         'name': 'Space Name',
         'required': True,
         'value': {
@@ -68,7 +59,7 @@ SS_SPACE_CREATION_FIELDS = [
         'name': 'Space Type',
         'required': True,
         'help': {
-            'text': 'choose_up_to_2'
+            'text': 'space_type_help'
         },
         'value': {
             'key': 'type',
@@ -112,7 +103,7 @@ SS_SPACE_DEFINITIONS = [
                 'name': 'Space Type',
                 'required': True,
                 'help': {
-                    'text': 'choose_up_to_2'
+                    'text': 'space_type_help'
                 },
                 'value': {
                     'key': 'type',
