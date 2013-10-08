@@ -160,6 +160,7 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'Floor',
+                'required': True,
                 'help': {
                     'text': 'floor_help'
                 },
@@ -177,9 +178,13 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
-                'name': 'Description',
+                'name': 'description',
                 'help': {
-                    'text': 'description_help'
+                    'text': 'description_help',
+                    'expanded': {
+                        'text': 'description_more_help',
+                        'link': 'description_link'
+                    }
                 },
                 'required': True,
                 'value': {
@@ -188,10 +193,14 @@ SS_SPACE_DEFINITIONS = [
             },
             {
                 'name': 'latlong',
-                'help': {
-                    'text': 'latlong_help'
-                },
                 'required': True,
+                'help': {
+                    'text': 'latlong_help',
+                    'expanded': {
+                        'text': 'latlong_more_help',
+                        'link': 'latlong_link'
+                    }
+                },
                 'value': [
                     {
                         'key': 'location.latitude'
