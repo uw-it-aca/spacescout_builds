@@ -231,7 +231,11 @@ SS_SPACE_DEFINITIONS = [
             {
                 'name': 'cafe_hours',
                 'help': {
-                    'text': 'cafe_hours_help'
+                    'text': 'cafe_hours_help',
+                    'expanded': {
+                        'text': 'cafe_hours_more_help',
+                        'link': 'cafe_hours_link'
+                    }
                 },
                 'value': {
                     'key': 'extended_info.cafe_hours',
