@@ -65,7 +65,7 @@ SS_SPACE_CREATION_FIELDS = [
             'key': 'type',
             'edit': {
                 'multi_select': True,
-                'select_limit': 2
+                'limit': 2
             }
         }
     },
@@ -268,12 +268,12 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.reservable',
                     'edit': {
-                        'default': 0,
+                        'default': None,
                         'requires': 'extended_info.reservation_notes'
                     },
                     'map': {
-                        'true': 'canreserve',
                         None: 'cannotreserve',
+                        'true': 'canreserve',
                         'reservations': 'mustreserve'
                     },
                     'format': '<em>{0}</em>'
