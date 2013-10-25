@@ -133,6 +133,7 @@ INSTALLED_APPS = (
     'django_verbatim',
     'compressor',
     'spacescout_admin',
+    'south',
 )
 
 # A sample logging configuration. The only tangible logging
