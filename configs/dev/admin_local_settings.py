@@ -46,6 +46,18 @@ MEDIA_URL = 'http://localhost:8001/media/'
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
 
+# Email to receive notice of publication requests
+#SS_PUBLISHER_EMAIL = [ 'admins@server.edu' ]
+
+# Email subject of publication requests
+SS_PUBLISHER_FROM = 'spacescout_admin@server.edu'
+
+# Email server settings
+EMAIL_HOST = 'smtp.server.edu'
+EMAIL_USE_TLS = True
+#EMAIL_HOST_USER = ''
+#EMAIL_HOST_PASSWORD = ''
+
 # Fields required for space creation
 SS_SPACE_CREATION_FIELDS = [
     {
