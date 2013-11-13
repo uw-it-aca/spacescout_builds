@@ -190,6 +190,15 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
+                'name': 'location_alias',
+                'help': {
+                    'text': 'location_alias_help',
+                },
+                'value': {
+                    'key': 'extended_info.location_alias'
+                }
+            },
+            {
                 'name': 'description',
                 'help': {
                     'text': 'description_help',

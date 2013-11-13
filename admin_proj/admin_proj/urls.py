@@ -18,7 +18,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     url(r'^djangoadmin/', include(admin.site.urls)),
 
-    url(r'^', include('spacescout_admin.urls')),
+    url(r'^manager/', include('spacescout_admin.urls')),
 )
 
 urlpatterns += staticfiles_urlpatterns()
