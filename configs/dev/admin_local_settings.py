@@ -171,6 +171,20 @@ SS_SPACE_DEFINITIONS = [
                 }
             },
             {
+                'name': 'location_alias',
+                'help': {
+                    'text': 'location_alias_help',
+                    'expanded': { 
+                        'text': 'location_alias_more_help', 
+                        'link': 'location_alias_link'
+                    }
+                },
+                'value': {
+                    'key': 'extended_info.location_alias'
+                }
+            },
+
+            {
                 'name': 'Floor',
                 'required': True,
                 'help': {
@@ -187,15 +201,6 @@ SS_SPACE_DEFINITIONS = [
                 },
                 'value': {
                     'key': 'location.room_number'
-                }
-            },
-            {
-                'name': 'location_alias',
-                'help': {
-                    'text': 'location_alias_help',
-                },
-                'value': {
-                    'key': 'extended_info.location_alias'
                 }
             },
             {
