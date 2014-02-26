@@ -297,11 +297,20 @@ SS_SPACE_DEFINITIONS = [
                         'default': None,
                         'requires': 'extended_info.reservation_notes'
                     },
-                    'map': {
-                        None: 'cannotreserve',
-                        'true': 'canreserve',
-                        'reservations': 'mustreserve'
-                    },
+                    'map': [
+                        {
+                            'value': '',
+                            'display': 'cannotreserve'
+                        },
+                        {
+                            'value': 'true',
+                            'display': 'canreserve'
+                        },
+                        {
+                            'value': 'reservations',
+                            'display': 'mustreserve'
+                        }
+                    ],
                     'format': '<em>{0}</em>'
                 }
             },
@@ -394,8 +403,26 @@ SS_SPACE_DEFINITIONS = [
                 'value': {
                     'key': 'extended_info.food_nearby',
                     'edit' : {
-                        'allow_none': True
-                    }
+                        'default': None
+                    },
+                    'map': [
+                        {
+                            'value': '',
+                            'display': 'unset'
+                        },
+                        {
+                            'value': 'space',
+                            'display': 'space'
+                        },
+                        {
+                            'value': 'building',
+                            'display': 'building'
+                        },
+                        {
+                            'value': 'neighboring',
+                            'display': 'neighboring'
+                        }
+                    ]
                 }
             }
         ]
