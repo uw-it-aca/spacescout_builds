@@ -121,7 +121,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'spacescout_web.context_processors.show_ios_smart_banner',
     'spacescout_web.context_processors.less_not_compiled',
     'spacescout_web.context_processors.is_mobile',
-    'spacescout_web.context_processors.ga_tracking_id'
+    'spacescout_web.context_processors.ga_tracking_id',
+    'spacescout_web.context_processors.gmaps_api_key',
 )
 
 MIDDLEWARE_CLASSES = (
