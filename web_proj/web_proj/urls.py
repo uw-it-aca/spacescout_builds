@@ -17,6 +17,7 @@ urlpatterns = patterns('',
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
     url(r'', include('spacescout_web.urls')),
+    url(r'^oauth/', include('oauth_provider.urls')),
 )
 
 handler404 = 'spacescout_web.views.error.page_not_found'
