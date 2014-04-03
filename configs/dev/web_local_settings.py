@@ -67,3 +67,9 @@ CACHES = {
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
+
+# Cannonical hostname for this web app server
+#SS_APP_SERVER = 'spacescout.uw.edu'
+
+# Default email domain for web app users
+SS_MAIL_DOMAIN = 'uw.edu'

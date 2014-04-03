@@ -47,3 +47,9 @@ MEDIA_URL = 'http://localhost:8000/media/'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = ''
+
+# Preferred web app hostname
+SS_APP_SERVER = 'spotseeker-test.uw.edu'
+
+# Path used by web app to display a space
+SS_APP_SPACE_PATH = "/space/{{ spot_id }}/{{ spot_name }}"
