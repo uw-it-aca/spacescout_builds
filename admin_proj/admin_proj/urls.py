@@ -22,3 +22,8 @@ urlpatterns = patterns('',
 )
 
 urlpatterns += staticfiles_urlpatterns()
+if settings.DEBUG:
+    urlpatterns += patterns('',
+        (r'^404/$', 'spacescout_admin.views.page.page_not_found'),
+        (r'^500/$', 'django.views.defaults.server_error'),
+    )
