@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.conf.urls import patterns, include, url
+from django.conf.urls.defaults import handler404
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 # Uncomment the next two lines to enable the admin:
@@ -27,3 +28,5 @@ if settings.DEBUG:
         (r'^404/$', 'spacescout_admin.views.page.page_not_found'),
         (r'^500/$', 'django.views.defaults.server_error'),
     )
+else:
+    handler404 = 'spacescout_admin.views.page.page_not_found'
