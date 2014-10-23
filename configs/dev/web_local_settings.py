@@ -30,15 +30,21 @@ SS_WEB_OAUTH_SECRET = ''
 
 SS_LOCATIONS = {
     'seattle': {
-        'NAME': 'Seattle Campus',
+        'NAME': 'UW Seattle',
         'CENTER_LATITUDE': '47.655003',
         'CENTER_LONGITUDE': '-122.306864',
         'ZOOM_LEVEL': '15',
     },
     'tacoma': {
-        'NAME': 'Tacoma Campus',
+        'NAME': 'UW Tacoma',
         'CENTER_LATITUDE': '47.24473',
         'CENTER_LONGITUDE': '-122.43855',
+        'ZOOM_LEVEL': '15',
+    },
+    'bothell': {
+        'NAME': 'UW Bothell',
+        'CENTER_LATITUDE': '47.761168',
+        'CENTER_LONGITUDE': '-122.190577',
         'ZOOM_LEVEL': '15',
     }
 }
