@@ -1,0 +1,28 @@
+#!/usr/bin/expect
+# input.expect : expect script for automation_testing.sh
+
+set user [lindex $argv 0];
+
+set timeout 120
+
+spawn "./../scripts/reset_servers.sh"
+
+expect "Would you like to create one now? (yes/no): " { send "yes\r"  }
+expect "Username (leave blank to use '$user'): "      { send "user\r" }
+expect "E-mail address: "     	     	       	      { send "lisatest@uw.edu\r" }
+expect "Password: "				      { send "password\r" }
+expect "Password (again): "			      { send "password\r" }
+
+expect "Would you like to create one now? (yes/no): " { send "yes\r"  }
+expect "Username (leave blank to use '$user'): "      { send "user\r" }
+expect "E-mail address: "     	     	       	      { send "lisatest@uw.edu\r" }
+expect "Password: "				      { send "password\r" }
+expect "Password (again): "			      { send "password\r" }
+
+expect "Would you like to create one now? (yes/no): " { send "yes\r"  }
+expect "Username (leave blank to use '$user'): "      { send "user\r" }
+expect "E-mail address: "     	     	       	      { send "lisatest@uw.edu\r" }
+expect "Password: "				      { send "password\r" }
+expect "Password (again): "			      { send "password\r" }
+
+expect "%" {send ""}
