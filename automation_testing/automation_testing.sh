@@ -95,7 +95,7 @@ cd ../scripts
 cd ../automation_testing
 
 # Create virtualenv and run automation tests
-$current_dir=pwd
+current_dir=$(pwd)
 if [ "$virtualenv_dir" != "false" ]
 then
     cd $virtualenv_dir
@@ -111,7 +111,7 @@ pip install selenium
 pip install Pyvirtualdisplay
 
 cd $current_dir
-python ../../selenium/AcceptanceTests.py
+python ../selenium/AcceptanceTests.py
 deactivate
 cd ..
 
