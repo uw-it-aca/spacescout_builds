@@ -213,7 +213,7 @@ class SpaceScoutPage():
     # Room Interaction
 
     def openRoomDetails(self, room):
-        self.getElement("div#info_list div.space-detail-name:contains('" + room + "')", name="detail opener", click=True)
+        self.getElement("div#info_list button.space-detail-list-item[aria-label='Get space details for " + room + "']", name="detail opener", click=True)
         # try:
         #     self.driver.find_element_by_css_selector("div.space-detail-container")
         # except NoSuchElementException:
@@ -414,7 +414,7 @@ class SpaceScoutPage():
         self.openRoomDetails(room)
         self.getElement("button#Write_Review_btn", name="write review button", click=True)
         time.sleep(1)
-        self.getElement("fieldset.space-review-rating input[value=" + str(stars) + "]", name="stars", click=True)
+        self.getElement("fieldset.space-review-rating input[value='" + str(stars) + "']", name="stars", click=True)
         try:
             self.getElement("textarea#Review_comment", name="review textarea").send_keys(reviewText)
         except ElementNotVisibleException:

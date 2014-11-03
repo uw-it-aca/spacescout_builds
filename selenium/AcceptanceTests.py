@@ -17,12 +17,12 @@ password  = TP.password
 pageUrl   = TP.pageUrl
 loginType = TP.loginType
 
-# Set up display
+# Set up display, remove these lines if not running tests headless
 display = Display(visible=0, size=(800, 600))
 display.start()
 
 # Set up webdriver
-webDriver = webdriver.Chrome()
+webDriver = webdriver.Firefox()
 webDriver.get(pageUrl)
 
 # Set up page controller
