@@ -17,14 +17,14 @@ from selenium.webdriver.support.ui import WebDriverWait
 import time
 
 class SpaceScoutPage():
-    
-    def __init__(self, driver, username, password, url, clearFavorites=False, loginType='netid'):
+
+    def __init__(self, driver, username, password, url, clearFavorites=False, loginType='django'):
         self.driver = driver
         self.username = username
         self.password = password
         self.url = url
         self.loginType = loginType
-        
+
         if clearFavorites:
             self.loginAsUser()
             if self.getFavoriteCount() > 0:
@@ -45,9 +45,9 @@ class SpaceScoutPage():
 
         try:
             if click:
-                element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((byMethod, selector))).click()
+                element = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((byMethod, selector))).click()
             else:
-                element = WebDriverWait(self.driver, 10).until(EC.presence_of_element_located((byMethod, selector)))
+                element = WebDriverWait(self.driver, 20).until(EC.presence_of_element_located((byMethod, selector)))
         except TE:
             raise self.customAE(selector, name, errorText)
         except (ElementNotVisibleException, WebDriverException):
@@ -65,7 +65,7 @@ class SpaceScoutPage():
             byMethod = By.CSS_SELECTOR
 
         try:
-            return WebDriverWait(self.driver, 10).until(EC.presence_of_all_elements_located((byMethod, selector)))
+            return WebDriverWait(self.driver, 20).until(EC.presence_of_all_elements_located((byMethod, selector)))
         except TE:
             raise self.customAE(selector, name, errorText)
 
@@ -89,7 +89,7 @@ class SpaceScoutPage():
         for handle in self.driver.window_handles:
             if handle != mainWindow:
                 newWindow = handle
-        
+
         self.driver.switch_to_window(newWindow)
         return newWindow
 
@@ -99,7 +99,7 @@ class SpaceScoutPage():
         self.driver.switch_to_window(self.driver.window_handles[0])
 
     # - Page Interaction -
-         
+
     # Filter Options
 
     def toggle_filter(self):
@@ -115,7 +115,7 @@ class SpaceScoutPage():
     def set_capacity(self, capacity):
         select = Select(self.getElement("fieldset#filter_capacity select#capacity"))
         select.select_by_visible_text(str(capacity))
-            
+
     def specify_day_and_time(self):
         self.getElement("fieldset#filter_hours input#hours_list_input", name="specify day and time radio button", click=True)
 
@@ -180,7 +180,7 @@ class SpaceScoutPage():
     def button_apply(self):
         self.getElement("button#view_results_button", name="view results button", click=True)
         time.sleep(4)
-        
+
     # Results Interaction
 
     def getBuildingList(self):
@@ -190,7 +190,7 @@ class SpaceScoutPage():
             buildingList.append(building.text)
 
         return buildingList
-        
+
     def getRoomList(self):
         roomList = []
         roomElements = self.getElements("div#info_list div.space-detail-name", name="room names")
@@ -201,7 +201,7 @@ class SpaceScoutPage():
             return self.getRoomList()
 
         return roomList
-        
+
     def getRoomListFromBuilding(self, building):
         roomList = []
         roomElements = self.getElements("//div[@id='info_list']//h3[. = '" + building + "']/..//div[@class = 'space-detail-name']", xpath=True, name=("room names for building " + building))
@@ -218,7 +218,7 @@ class SpaceScoutPage():
         #     self.driver.find_element_by_css_selector("div.space-detail-container")
         # except NoSuchElementException:
         #     self.openRoomDetails(room)
-        
+
     def closeRoomDetails(self):
         self.getElement("div.space-detail a.close", name="detail closer", click=True)
 
@@ -266,7 +266,7 @@ class SpaceScoutPage():
         minutes = 0
         if len(hourMin) > 1:
             minutes = int(hourMin[1])
-        
+
         if time.endswith("PM"):
             hour = hour + 12
         elif hour is 12:
@@ -288,17 +288,17 @@ class SpaceScoutPage():
     def getNextDay(self, day):
         days = ['M', 'T', 'W', 'Th', 'F', 'Sa', 'Su', 'M']
         return days[days.index(day) + 1]
-    
+
     def getOpenHours(self, room):
         self.openRoomDetails(room)
-        
+
         hours = { 'M' : [], 'T' : [], 'W' : [], 'Th': [], 'F' : [], 'Sa': [], 'Su': [] }
-                
+
         hoursText =  self.getElement("//div[@class = 'space-detail']//li[@class = 'clearfix']//h3[. = 'Hours']/../div[@class = 'space-info-detail pull-left']", xpath=True, name="room hours").text        
         if hoursText == "":
             return self.getOpenHours(room)
         hoursLines = hoursText.split('\n')
-        
+
         for day in hours.keys():
             for line in hoursLines:
                 line = line.split(':', 1)
@@ -314,7 +314,7 @@ class SpaceScoutPage():
                     else:
                         openTime  = self.convertTo24(openHours[0].strip())
                         closeTime = self.convertTo24(openHours[1].strip())
-                        
+
                     if closeTime < openTime:
                         # Morning After mode
                         hours[self.getNextDay(day)].append(self.HourInterval(0, closeTime))
@@ -323,7 +323,7 @@ class SpaceScoutPage():
                     hours[day].append(self.HourInterval(openTime, closeTime))
 
         return hours
-        
+
     def roomIsOpen(self, room, time):
         day  = time['day']
         hour = self.convertTo24(time['hour'].strip())   
@@ -346,12 +346,12 @@ class SpaceScoutPage():
 
         toField = self.getElement("input#id_recipient-tokenfield", name="recipient field")
         toField.send_keys(recipient)
-            
+
         messageField = self.getElement("textarea#id_message", name="message field")
         messageField.send_keys(message)
 
         self.getElement("input#formSubmit_button", name="submit button", click=True)
-        
+
         checkRes = self.getElement("h2", name="thank-you").text == 'Thank You'
         self.getElement("div#main_content a", click=True)
         return checkRes       
@@ -367,7 +367,7 @@ class SpaceScoutPage():
         favoriteTitles = []
         for favorite in favoritedRooms:
             favoriteTitles.append(favorite.text.split('\n')[1])
-            
+
         self.closeTab(windowHandle)
 
         return room in favoriteTitles
@@ -375,13 +375,12 @@ class SpaceScoutPage():
     def getFavoriteRoomList(self):
         windowHandle = self.newTab()
         self.driver.get(self.url + '/favorites')
-        
         roomNames = []
         for element in self.getElements("div.space-detail-header h4#space-name", name="space detail header"):
             roomNames.append(element.text)
 
         return roomNames
-        
+
     def unfavoriteRoom(self, room):
         windowHandle = self.newTab()
         self.driver.get(self.url + '/favorites')
@@ -396,20 +395,20 @@ class SpaceScoutPage():
                         raise AssertionError("Could not find unfavorite button for room " + room + ".")
             except TE:
                 raise AssertionError("Could not find room title.")
-                
+
         self.getElement("div#space-detail-blank a", name="favorites return link", click=True)
         self.closeTab(windowHandle)
-                
+
     def getFavoriteCount(self):
         windowHandle = self.newTab()
         self.driver.get(self.url + '/favorites')
 
-        time.sleep(2)
+        time.sleep(5)
         favText = self.getElement("span.favorites_total_container", name="favorite count").text
 
         self.closeTab(windowHandle)
         return int(favText[0:2].strip())
-        
+
     def writeReview(self, room, stars, reviewText):
         self.openRoomDetails(room)
         self.getElement("button#Write_Review_btn", name="write review button", click=True)
@@ -449,7 +448,6 @@ class SpaceScoutPage():
             raise AssertionError("No login type specified")
 
         time.sleep(2)
-            
 
     def logout(self):
         self.driver.delete_all_cookies()
@@ -466,7 +464,7 @@ class SpaceScoutPage():
         for handle in self.driver.window_handles:
             if handle != mainWindow:
                 newWindow = handle
-            
+
         self.driver.switch_to_window(newWindow)
         result = self.driver.current_url.startswith(url)
         self.driver.close()
@@ -486,13 +484,12 @@ class SpaceScoutPage():
 
     def check_terms_link(self):
         return self.check_link(self.getElements("div#footer a", name="footer links")[1], ("http://www.washington.edu/online/terms/"))
-        
+
     def check_about_link(self):
         return self.check_link(self.getElements("div#footer a", name="footer links")[2], ("http://www.washington.edu/itconnect/learn/tools/spacescout"))
 
     def check_faq_link(self):
         return self.check_link(self.getElements("div#footer a", name="footer links")[3], ("http://www.washington.edu/itconnect/learn/tools/spacescout"))
-                          
 
     # Location Management
     def changeLocation(self, location):
@@ -515,7 +512,7 @@ class SpaceScoutPage():
         minutes = 0
         if len(hourMin) > 1:
             minutes = int(hourMin[1])
-        
+
         if time.endswith("PM"):
             hour = hour + 12
         elif hour is 12:
