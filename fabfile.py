@@ -95,7 +95,7 @@ def deploy_dev_docs():
 def deploy_dev_web():
     local("virtualenv --no-site-packages web_proj/")
     with prefix(". web_proj/bin/activate"):
-        local("git clone git://github.com/requirements/abztrakt/spacescout_web.git web_proj/spacescout_web")
+        local("git clone git://github.com/uw-it-aca/spacescout_web.git web_proj/spacescout_web")
         local("pip install -r web_proj/spacescout_web/base-requirements.txt")
         local("cp configs/dev/web_local_settings.py web_proj/web_proj/local_settings.py")
         local("cp web_proj/web_proj/sample.wsgi.py web_proj/web_proj/wsgi.py")
