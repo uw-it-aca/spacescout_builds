@@ -182,14 +182,18 @@ LOGGING = {
     'filters': {
         'require_debug_false': {
             '()': 'django.utils.log.RequireDebugFalse'
-        }
+        },
     },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'console': {
+            'level': 'WARNING',
+            'class': 'logging.StreamHandler',
+        },
     },
     'loggers': {
         'django.request': {
@@ -197,8 +201,21 @@ LOGGING = {
             'level': 'ERROR',
             'propagate': True,
         },
+        '': {
+            'handlers': ['console'],
+            'level': 'WARNING',
+            'propagate': True,
+        },
     }
 }
+
+# Uncomment these to limit the hosts that can access your site -- Good for testing 500 errors.
+# ALLOWED_HOSTS = ['example.host.com', ]
+# USE_X_FORWARDED_HOST = True
+
+# Uncomment the line below if you want to have emails printed to your console
+# Your admin settings must be filled out for the email to be printed in your console
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 #Django Compressor - LessCSS Compiler
 COMPRESS_ENABLED = True
